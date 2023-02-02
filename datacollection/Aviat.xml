@@ -1,0 +1,331 @@
+<datacollection-group xmlns="http://xmlns.opennms.org/xsd/config/datacollection" name="Aviat">
+   <resourceType name="avtRfConfigEntry" label="avtRfConfigEntry" resourceLabel="${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="avtRfATPCEntry" label="avtRfATPCEntry" resourceLabel="${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="avtRfuCapabilityEntry" label="avtRfuCapabilityEntry" resourceLabel="${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="avtRfuTxSpacngEntry" label="avtRfuTxSpacngEntry" resourceLabel="${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="avtRfuDetailsEntry" label="avtRfuDetailsEntry" resourceLabel="${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="avtRfACUEntry" label="avtRfACUEntry" resourceLabel="${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="aviatRxPerformEntry" label="aviatRxPerformEntry" resourceLabel="${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="aviatEntity" label="Aviat Radio Device" resourceLabel="${avtEntPhysName} ${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collectd.PersistRegexSelectorStrategy">
+         <parameter key="match-expression" value="(#avtEntPhysName matches '^.*Radio.*$')"/>
+      </persistenceSelectorStrategy>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="aviatL1LAGroup" label="aviatL1LAGroup" resourceLabel="Aviat L1LA Group ${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+
+   <group name="genericNodeAttributes" ifType="ignore">
+      <mibObj oid=".1.3.6.1.2.1.1.5" instance="0" alias="siteSysName" type="string"/>
+      <mibObj oid=".1.3.6.1.2.1.1.6" instance="0" alias="siteSysLocation" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.1001.13.2.1.1" instance="0" alias="siteSwitchName" type="string"/>
+   </group>
+
+   <group name="aviatEntity" ifType="ignore">
+      <mibObj oid=".1.3.6.1.2.1.47.1.1.1.1.7" instance="aviatEntity" alias="avtEntPhysName" type="string"/>
+   </group>
+
+   <group name="avtRfConfigTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.1.1.1" instance="avtRfConfigEntry" alias="avtRfFreqTx" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.1.1.2" instance="avtRfConfigEntry" alias="avtRfFreqRx" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.1.1.3" instance="avtRfConfigEntry" alias="avtRfPwrSet" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.1.1.4" instance="avtRfConfigEntry" alias="avtRfTxMute" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.1.1.5" instance="avtRfConfigEntry" alias="avtRfHighGain" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.1.1.6" instance="avtRfConfigEntry" alias="avtRfBandSelectio" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.1.1.7" instance="avtRfConfigEntry" alias="avtRfIruPwrOffse" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.1.1.8" instance="avtRfConfigEntry" alias="avtRfIruHighGain" type="gauge"/>
+      <property instance="avtRfConfigEntry" alias="avtRfTxMuteTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtRfTxMute"/>
+         <parameter key="1" value="true (1)"/>
+         <parameter key="2" value="false (2)"/>
+      </property>
+      <property instance="avtRfConfigEntry" alias="avtRfHighGainTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtRfHighGain"/>
+         <parameter key="1" value="true (1)"/>
+         <parameter key="2" value="false (2)"/>
+      </property>
+      <property instance="avtRfConfigEntry" alias="avtRfBandSelnTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtRfBandSelectio"/>
+         <parameter key="1" value="upper5g8 (1)"/>
+         <parameter key="2" value="lower6g (2)"/>
+      </property>
+      <property instance="avtRfConfigEntry" alias="avtRfIruHiGainT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtRfIruHighGain"/>
+         <parameter key="1" value="true (1)"/>
+         <parameter key="2" value="false (2)"/>
+      </property>
+   </group>
+   <group name="avtRfATPCTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.2.1.1" instance="avtRfATPCEntry" alias="avtRfATPCEnabled" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.2.1.2" instance="avtRfATPCEntry" alias="aviRfATPTgtFadeMarg" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.2.1.3" instance="avtRfATPCEntry" alias="avtRfATPCMaxPwr" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.2.1.4" instance="avtRfATPCEntry" alias="avtRfATPCMinPwr" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.2.1.5" instance="avtRfATPCEntry" alias="avtRfATPCFCCompli" type="string"/>
+      <property instance="avtRfATPCEntry" alias="avtRfATPCEnbldTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtRfATPCEnabled"/>
+         <parameter key="1" value="true (1)"/>
+         <parameter key="2" value="false (2)"/>
+      </property>
+      <property instance="avtRfATPCEntry" alias="avtRfATPCFCComplT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtRfATPCFCCompli"/>
+         <parameter key="1" value="true (1)"/>
+         <parameter key="2" value="false (2)"/>
+      </property>
+   </group>
+   <group name="avtRfuCapabilityTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.1" instance="avtRfuCapabilityEntry" alias="avtRfuTxFreqMax" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.2" instance="avtRfuCapabilityEntry" alias="avtRfuTxFreqMin" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.3" instance="avtRfuCapabilityEntry" alias="avtRfuRxFreqMax" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.4" instance="avtRfuCapabilityEntry" alias="avtRfuRxFreqMin" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.5" instance="avtRfuCapabilityEntry" alias="avtRfuFreqStepMin" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.6" instance="avtRfuCapabilityEntry" alias="avtRfuBwMax" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.7" instance="avtRfuCapabilityEntry" alias="avtRfuTxRxSpacMax" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.8" instance="avtRfuCapabilityEntry" alias="avtRfuTxRxSpacMin" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.9" instance="avtRfuCapabilityEntry" alias="avtRfuTxPwrMax" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.10" instance="avtRfuCapabilityEntry" alias="avtRfuTxPwrMin" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.11" instance="avtRfuCapabilityEntry" alias="avtRfuPwrStep" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.12" instance="avtRfuCapabilityEntry" alias="avtRfuNoiseFig" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.13" instance="avtRfuCapabilityEntry" alias="avtRfuModulMax" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.14" instance="avtRfuCapabilityEntry" alias="avtRfuTxRxSpacPres" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.15" instance="avtRfuCapabilityEntry" alias="avtRfuTxSideBand" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.16" instance="avtRfuCapabilityEntry" alias="avtRfuTxPwrLimit" type="gauge"/>
+      <!-- also as string in case we need them -->
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.1" instance="avtRfuCapabilityEntry" alias="avtRfuTxFreqMaxT" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.2" instance="avtRfuCapabilityEntry" alias="avtRfuTxFreqMinT" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.3" instance="avtRfuCapabilityEntry" alias="avtRfuRxFreqMaxT" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.4" instance="avtRfuCapabilityEntry" alias="avtRfuRxFreqMinT" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.5" instance="avtRfuCapabilityEntry" alias="avtRfuFreqStepMinT" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.6" instance="avtRfuCapabilityEntry" alias="avtRfuBwMaxTXT" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.7" instance="avtRfuCapabilityEntry" alias="avtRfuTxRxSpacMaxT" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.8" instance="avtRfuCapabilityEntry" alias="avtRfuTxRxSpacMinT" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.9" instance="avtRfuCapabilityEntry" alias="avtRfuTxPwrMaxTXT" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.10" instance="avtRfuCapabilityEntry" alias="avtRfuTxPwrMinTXT" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.11" instance="avtRfuCapabilityEntry" alias="avtRfuPwrStepTXT" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.12" instance="avtRfuCapabilityEntry" alias="avtRfuNoiseFigTXT" type="string"/>
+      <property instance="avtRfuCapabilityEntry" alias="avtRfuTxRxSpacPrsT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtRfuTxRxSpacPres"/>
+         <parameter key="1" value="true (1)"/>
+         <parameter key="2" value="false (2)"/>
+      </property>
+      <property instance="avtRfuCapabilityEntry" alias="avtRfuModulMaxTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtRfuModulMax"/>
+         <parameter key="1" value="modulationNone (1)"/>
+         <parameter key="2" value="modulationQpsk (2)"/>
+         <parameter key="3" value="modulation16qam (3)"/>
+         <parameter key="4" value="modulation32qam (4)"/>
+         <parameter key="5" value="modulation64qam (5)"/>
+         <parameter key="6" value="modulation128qam (6)"/>
+         <parameter key="7" value="modulation256qam (7)"/>
+         <parameter key="8" value="modulation512qam (8)"/>
+         <parameter key="9" value="modulation1024qam (9)"/>
+         <parameter key="10" value="modulation256qamHG (10)"/>
+         <parameter key="11" value="modulation512qamHG (11)"/>
+         <parameter key="12" value="modulation1024qamHG (12)"/>
+         <parameter key="13" value="modulation2048qam (13)"/>
+         <parameter key="14" value="modulation4096qam (14)"/>
+      </property>
+      <property instance="avtRfuCapabilityEntry" alias="avtRfuTxSideBandT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtRfuTxSideBand"/>
+         <parameter key="1" value="highBand (1)"/>
+         <parameter key="1" value="lowBand (2)"/>
+         <parameter key="1" value="fullBand (3)"/>
+      </property>
+   </group>
+   <group name="avtRfuTxSpacngTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.4.1.1" instance="avtRfuTxSpacngEntry" alias="avtRfuTxSpacIndex" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.4.1.2" instance="avtRfuTxSpacngEntry" alias="avtRfuTxSpacFreq" type="gauge"/>
+   </group>
+   <group name="avtRfuDetailsTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.5.1.1" instance="avtRfuDetailsEntry" alias="avtRfuType" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.5.1.2" instance="avtRfuDetailsEntry" alias="avtRfuFreqBand" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.5.1.3" instance="avtRfuDetailsEntry" alias="avtRfuPwrAmp" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.5.1.4" instance="avtRfuDetailsEntry" alias="avtRfuSemiconTech" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.5.1.5" instance="avtRfuDetailsEntry" alias="avtRfuUnlic5G8Cap" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.5.1.6" instance="avtRfuDetailsEntry" alias="avtRfuExtCoaxPres" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.5.1.7" instance="avtRfuDetailsEntry" alias="avtRfuACUPresent" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.5.1.8" instance="avtRfuDetailsEntry" alias="avtRfuHighGainSprt" type="gauge"/>
+      <property instance="avtRfuDetailsEntry" alias="avtRfuExtCoaxPrsT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtRfuExtCoaxPres"/>
+         <parameter key="1" value="true (1)"/>
+         <parameter key="2" value="false (2)"/>
+      </property>
+      <property instance="avtRfuDetailsEntry" alias="avtRfuACUPresTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtRfuACUPresent"/>
+         <parameter key="1" value="true (1)"/>
+         <parameter key="2" value="false (2)"/>
+      </property>
+      <property instance="avtRfuDetailsEntry" alias="avtRfuUnlic5G8CapT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtRfuUnlic5G8Cap"/>
+         <parameter key="1" value="true (1)"/>
+         <parameter key="2" value="false (2)"/>
+      </property>
+      <property instance="avtRfuDetailsEntry" alias="avtRfuHiGainSprtT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtRfuHighGainSprt"/>
+         <parameter key="1" value="none (1)"/>
+         <parameter key="1" value="oduFlexiblePower (2)"/>
+         <parameter key="1" value="iruHighPower (3)"/>
+      </property>
+      <property instance="avtRfuDetailsEntry" alias="avtRfuSmcTechTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtRfuSemiconTech"/>
+         <parameter key="1" value="gan (1)"/>
+         <parameter key="2" value="gaas (2)"/>
+      </property>
+   </group>
+   <group name="avtRfACUTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.6.1.1" instance="avtRfACUEntry" alias="avtRfACUTxFltrBand" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.6.1.2" instance="avtRfACUEntry" alias="avtRfACUTxCtrFreq" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.6.1.3" instance="avtRfACUEntry" alias="avtRfACUTxInseLoss" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.6.1.4" instance="avtRfACUEntry" alias="avtRfACURxFltrBand" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.6.1.5" instance="avtRfACUEntry" alias="avtRfACURxCtrFreq" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.6.1.6" instance="avtRfACUEntry" alias="avtRfACURxInseLoss" type="gauge"/>
+   </group>
+
+   <group name="aviatRxPerformTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.2509.9.15.2.2.1.3" instance="aviatRxPerformEntry" alias="avtRxRslMean" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.15.2.2.1.4" instance="aviatRxPerformEntry" alias="avtRxRslCurr" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.15.2.2.1.5" instance="aviatRxPerformEntry" alias="avtRxRslMax" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.15.2.2.1.6" instance="aviatRxPerformEntry" alias="avtRxRslMin" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.15.2.2.1.7" instance="aviatRxPerformEntry" alias="avtRxBerMean" type="counter"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.15.2.2.1.8" instance="aviatRxPerformEntry" alias="avtRxBerCurr" type="counter"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.15.2.2.1.9" instance="aviatRxPerformEntry" alias="avtRxBerMax" type="counter"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.15.2.2.1.10" instance="aviatRxPerformEntry" alias="avtRxBerMin" type="counter"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.15.2.2.1.11" instance="aviatRxPerformEntry" alias="avtRxFrameLossSec" type="gauge"/>
+      <!-- duplicate these as string also just in case -->
+      <mibObj oid=".1.3.6.1.4.1.2509.9.15.2.2.1.3" instance="aviatRxPerformEntry" alias="avtRxRslMeanTXT" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.15.2.2.1.4" instance="aviatRxPerformEntry" alias="avtRxRslCurrTXT" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.15.2.2.1.5" instance="aviatRxPerformEntry" alias="avtRxRslMaxTXT" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.15.2.2.1.6" instance="aviatRxPerformEntry" alias="avtRxRslMinTXT" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.15.2.2.1.11" instance="aviatRxPerformEntry" alias="avtRxFrameLossSecT" type="string"/>
+   </group>
+   <!-- Aviat extention to IF-MIB -->
+   <group name="aviatAaCfa" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.2509.9.1001.2.2.1.4.1.2" instance="ifIndex" alias="avtIfMainType" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.1001.2.2.1.4.1.3" instance="ifIndex" alias="avtIfMainMTU" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.1001.2.2.1.4.1.4" instance="ifIndex" alias="avtIfMainAdmStat" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.1001.2.2.1.4.1.5" instance="ifIndex" alias="avtIfMainOprStat" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.1001.2.2.1.4.1.6" instance="ifIndex" alias="avtIfMainEncapTyp" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.1001.2.2.1.4.1.7" instance="ifIndex" alias="avtIfMainBrgPort" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.1001.2.2.1.4.1.8" instance="ifIndex" alias="avtIfMainRowStat" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.1001.2.2.1.4.1.9" instance="ifIndex" alias="avtIfMainSubType" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.1001.2.2.1.4.1.10" instance="ifIndex" alias="avtIfMainNetTyp" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.1001.2.2.1.4.1.11" instance="ifIndex" alias="avtIfMainWanType" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.1001.2.2.1.4.1.12" instance="ifIndex" alias="avtIfMainDesc" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.1001.2.2.1.4.1.13" instance="ifIndex" alias="avtIfMainStorTyp" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.1001.2.2.1.4.1.14" instance="ifIndex" alias="avtIfMainExtSub" type="gauge"/>
+      <property instance="ifIndex" alias="avtIfMainTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtIfMainType"/>
+         <parameter key="5" value="rfc877x25 (5)"/>
+         <parameter key="6" value="ethernetCsmacd (6)"/>
+         <parameter key="9" value="iso88025TokenRing (9)"/>
+         <parameter key="18" value="ds1 (18)"/>
+         <parameter key="23" value="ppp (23)"/>
+         <parameter key="24" value="softwareLoopback (24)"/>
+         <parameter key="32" value="frameRelay (32)"/>
+         <parameter key="38" value="miox25 (38)"/>
+         <parameter key="49" value="aal5 (49)"/>
+         <parameter key="53" value="propVirtual (53)"/>
+         <parameter key="84" value="async (84)"/>
+         <parameter key="92" value="frameRelayMPI (92)"/>
+         <parameter key="108" value="pppMultilinkBundle (108)"/>
+         <parameter key="114" value="ipOverAtm (114)"/>
+         <parameter key="118" value="hdlc (118)"/>
+         <parameter key="131" value="tunnel (131)"/>
+         <parameter key="134" value="atmSubInterface (134)"/>
+         <parameter key="136" value="l3ipvlan (136)"/>
+         <parameter key="150" value="mplsTunnel (150)"/>
+         <parameter key="161" value="ieee8023ad (161)"/>
+         <parameter key="166" value="mpls (166)"/>
+         <parameter key="200" value="teLink (200)"/>
+         <parameter key="209" value="brgPort (209)"/>
+         <parameter key="246" value="ifPwType (246)"/>
+         <parameter key="247" value="ilan (247)"/>
+         <parameter key="248" value="pip (248)"/>
+      </property>
+      <property instance="ifIndex" alias="avtIfMainEncapTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtIfMainEncapTyp"/>
+         <parameter key="1" value="other (1)"/>
+         <parameter key="2" value="nlpid (2)"/>
+         <parameter key="3" value="nlpidSnap (3)"/>
+         <parameter key="4" value="cudNlpid (4)"/>
+         <parameter key="5" value="cudNlpidSnap (5)"/>
+         <parameter key="6" value="llcSnap (6)"/>
+         <parameter key="7" value="vcMultiplexed (7)"/>
+         <parameter key="8" value="ethernetV2 (8)"/>
+      </property>
+      <property instance="ifIndex" alias="avtIfMainBrgPortT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtIfMainBrgPort"/>
+         <parameter key="1" value="providerNetworkPort (1)"/>
+         <parameter key="2" value="customerNetworkPortPortBased (2)"/>
+         <parameter key="3" value="customerNetworkPortStagged (3)"/>
+         <parameter key="4" value="customerEdgePort (4)"/>
+         <parameter key="5" value="propCustomerEdgePort (5)"/>
+         <parameter key="6" value="propCustomerNetworkPort (6)"/>
+         <parameter key="7" value="propProviderNetworkPort (7)"/>
+         <parameter key="8" value="customerBridgePort (8)"/>
+         <parameter key="9" value="customerNetworkPortCtagged (9)"/>
+         <parameter key="10" value="virtualInstancePort (10)"/>
+         <parameter key="11" value="providerInstancePort (11)"/>
+         <parameter key="12" value="customerBackbonePort (12)"/>
+      </property>
+      <property instance="ifIndex" alias="avtIfMainNetTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtIfMainNetTyp"/>
+         <parameter key="1" value="lan (1)"/>
+         <parameter key="2" value="wan (2)"/>
+      </property>
+      <property instance="ifIndex" alias="avtIfMainWanTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="avtIfMainWanType"/>
+         <parameter key="0" value="other (0)"/>
+         <parameter key="1" value="private (1)"/>
+         <parameter key="2" value="public (2)"/>
+      </property>
+   </group>
+   <group name="avtL1LAGroup" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.2509.9.36.2.1.1.2" instance="aviatL1LAGroup" alias="avtL1LAName" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.36.2.1.1.3" instance="aviatL1LAGroup" alias="avtL1LACapcty" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.36.2.1.1.4" instance="aviatL1LAGroup" alias="avtL1LARowStat" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.36.2.1.1.5" instance="aviatL1LAGroup" alias="avtL1LAType" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.36.2.1.1.6" instance="aviatL1LAGroup" alias="avtL1LACurCapcty" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.36.2.2.1.3" instance="aviatL1LAGroup" alias="avtL1LARowStat" type="gauge"/> 
+      <mibObj oid=".1.3.6.1.4.1.2509.9.36.2.2.1.4" instance="aviatL1LAGroup" alias="avtL1LAIfLclMembID" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.2509.9.36.2.2.1.5" instance="aviatL1LAGroup" alias="avtL1LAIfRemMembID" type="gauge"/>
+   </group>
+
+   <systemDef name="Aviat">
+      <sysoidMask>.1.3.6.1.4.1.2509.11.1.1.</sysoidMask>
+      <collect>
+         <includeGroup>avtRfConfigTable</includeGroup>
+         <includeGroup>avtRfATPCTable</includeGroup>
+         <includeGroup>avtRfuCapabilityTable</includeGroup>
+         <includeGroup>avtRfuTxSpacngTable</includeGroup>
+         <includeGroup>avtRfuDetailsTable</includeGroup>
+         <includeGroup>avtRfACUTable</includeGroup>
+         <includeGroup>aviatRxPerformTable</includeGroup>
+         <includeGroup>aviatEntity</includeGroup>
+         <includeGroup>aviatAaCfa</includeGroup>
+         <includeGroup>avtL1LAGroup</includeGroup>
+      </collect>
+   </systemDef>
+</datacollection-group>

@@ -1,0 +1,108 @@
+<datacollection-group xmlns="http://xmlns.opennms.org/xsd/config/datacollection" name="fastback">
+      <resourceType name="fastbackRadioProductIndex" label="Fastback Radio Product" resourceLabel="Radio ${ibrLinkName} (Index:${index})">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="fastbackRadioConfigIndex" label="Fastback Radio Config" resourceLabel="Radio ${ibrLinkName} (Index:${index})">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="fastbackRadioStatsIndex" label="Fastback Radio Stats" resourceLabel="Radio ${ibrLinkName} (Index:${index})">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+
+   <group name="genericNodeAttributes" ifType="ignore">
+      <mibObj oid=".1.3.6.1.2.1.1.5" instance="0" alias="siteSysName" type="string"/>
+      <mibObj oid=".1.3.6.1.2.1.1.6" instance="0" alias="siteSysLocation" type="string"/>
+   </group>
+
+   <group name="FastbackProduct" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.1" instance="fastbackRadioProductIndex" alias="ibrIdx" type="gauge"/> 
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.2" instance="fastbackRadioProductIndex" alias="ibrSWver" type="string"/> 
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.3" instance="fastbackRadioProductIndex" alias="ibrSWBldRev" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.4" instance="fastbackRadioProductIndex" alias="ibrSWBldDate" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.5" instance="fastbackRadioProductIndex" alias="ibrFWBldRev" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.6" instance="fastbackRadioProductIndex" alias="ibrFWBldRev" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.7" instance="fastbackRadioProductIndex" alias="ibrFWVer" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.8" instance="fastbackRadioProductIndex" alias="ibrFWAPIVer" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.9" instance="fastbackRadioProductIndex" alias="ibrFWCfgVer" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.10" instance="fastbackRadioProductIndex" alias="ibrFWCalVer" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.11" instance="fastbackRadioProductIndex" alias="ibrSerialNum" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.12" instance="fastbackRadioProductIndex" alias="ibrMacAddr" type="hexstring"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.13" instance="fastbackRadioProductIndex" alias="ibrUpTime" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.14" instance="fastbackRadioProductIndex" alias="ibrAlarmState" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.15" instance="fastbackRadioProductIndex" alias="ibrDFSSerNum" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.16" instance="fastbackRadioProductIndex" alias="ibrDFSVers" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.17" instance="fastbackRadioProductIndex" alias="ibrTemp" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.18" instance="fastbackRadioProductIndex" alias="ibrLicTPut" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.19" instance="fastbackRadioProductIndex" alias="ibrRegionCode" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.20" instance="fastbackRadioProductIndex" alias="ibrLinkName" type="string"/>
+   </group>
+   <group name="FastbackConfig" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.1" instance="fastbackRadioConfigIndex" alias="ibrRxProfile" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.2" instance="fastbackRadioConfigIndex" alias="ibrTxProfile" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.3" instance="fastbackRadioConfigIndex" alias="ibrRxChannel" type="gauge"/>  
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.4" instance="fastbackRadioConfigIndex" alias="ibrTxChannel" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.5" instance="fastbackRadioConfigIndex" alias="ibrRxMcsS0" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.6" instance="fastbackRadioConfigIndex" alias="ibrRxMcsS1" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.7" instance="fastbackRadioConfigIndex" alias="ibrTxMcsS0" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.8" instance="fastbackRadioConfigIndex" alias="ibrTxMcsS1" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.9" instance="fastbackRadioConfigIndex" alias="ibrBarq" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.10" instance="fastbackRadioConfigIndex" alias="ibrLnaAnt" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.11" instance="fastbackRadioConfigIndex" alias="ibrLnaObd" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.12" instance="fastbackRadioConfigIndex" alias="ibrRxTpS0" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.13" instance="fastbackRadioConfigIndex" alias="ibrRxTpS1" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.14" instance="fastbackRadioConfigIndex" alias="ibrTxTpS0" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.15" instance="fastbackRadioConfigIndex" alias="ibrTxTpS1" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.16" instance="fastbackRadioConfigIndex" alias="ibrAttnS0" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.17" instance="fastbackRadioConfigIndex" alias="ibrAttnS1" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.18" instance="fastbackRadioConfigIndex" alias="ibrEIRP" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.19" instance="fastbackRadioConfigIndex" alias="ibrRxBW" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.20" instance="fastbackRadioConfigIndex" alias="ibrTxBW" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.21" instance="fastbackRadioConfigIndex" alias="ibrAntPairs" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.22" instance="fastbackRadioConfigIndex" alias="ibrRRCCIRTgt" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.23" instance="fastbackRadioConfigIndex" alias="ibrRRCCIRMesrd" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.24" instance="fastbackRadioConfigIndex" alias="ibrRRCTputTrggr" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.2.1.25" instance="fastbackRadioConfigIndex" alias="ibrTxPower" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.20" instance="fastbackRadioConfigIndex" alias="ibrLinkName" type="string"/>
+   </group>
+   <group name="FastbackStats" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.1" instance="fastbackRadioStatsIndex" alias="ibrRadioLink" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.2" instance="fastbackRadioStatsIndex" alias="ibrRadioSyncTime" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.3" instance="fastbackRadioStatsIndex" alias="ibrRslAntenna1" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.4" instance="fastbackRadioStatsIndex" alias="ibrRslAntenna2" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.5" instance="fastbackRadioStatsIndex" alias="ibrRslAntenna3" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.6" instance="fastbackRadioStatsIndex" alias="ibrRslAntenna4" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.7" instance="fastbackRadioStatsIndex" alias="ibrSnrStream0" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.8" instance="fastbackRadioStatsIndex" alias="ibrSnrStream1" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.9" instance="fastbackRadioStatsIndex" alias="ibrBlerStream0" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.10" instance="fastbackRadioStatsIndex" alias="ibrBlerStream1" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.11" instance="fastbackRadioStatsIndex" alias="ibrRxFrameCnt" type="counter"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.12" instance="fastbackRadioStatsIndex" alias="ibrRxEthPktCnt" type="counter"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.13" instance="fastbackRadioStatsIndex" alias="ibrRxTbsCnt" type="counter"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.14" instance="fastbackRadioStatsIndex" alias="ibrRxTbsBadStr0Cnt" type="counter"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.15" instance="fastbackRadioStatsIndex" alias="ibrRxTbsBadStr1Cnt" type="counter"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.16" instance="fastbackRadioStatsIndex" alias="ibrTxFrameCnt" type="counter"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.17" instance="fastbackRadioStatsIndex" alias="ibrTxEthPktCnt" type="counter"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.18" instance="fastbackRadioStatsIndex" alias="ibrTxTbsCnt" type="counter"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.19" instance="fastbackRadioStatsIndex" alias="ibrRxEthBytes" type="counter"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.20" instance="fastbackRadioStatsIndex" alias="ibrTxEthBytes" type="counter"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.21" instance="fastbackRadioStatsIndex" alias="ibrRxTbsDropped" type="counter"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.22" instance="fastbackRadioStatsIndex" alias="ibrRxPktDropped" type="counter"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.23" instance="fastbackRadioStatsIndex" alias="ibrRxTbsDropRate" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.24" instance="fastbackRadioStatsIndex" alias="ibrRxPktDropRate" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.25" instance="fastbackRadioStatsIndex" alias="ibrRxTputRate" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.3.1.26" instance="fastbackRadioStatsIndex" alias="ibrTxTputRate" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.40984.1.1.20" instance="fastbackRadioStatsIndex" alias="ibrLinkName" type="string"/>
+   </group>
+   <systemDef name="Fastback">
+      <sysoid>.1.3.6.1.4.1.40984.10.9</sysoid>
+      <collect>
+         <includeGroup>FastbackProduct</includeGroup>
+         <includeGroup>FastbackConfig</includeGroup>
+         <includeGroup>FastbackStats</includeGroup>
+         <includeGroup>genericNodeAttributes</includeGroup>
+      </collect>
+   </systemDef>
+</datacollection-group>

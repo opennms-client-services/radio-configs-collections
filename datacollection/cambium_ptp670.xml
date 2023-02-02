@@ -1,0 +1,183 @@
+<datacollection-group xmlns="http://xmlns.opennms.org/xsd/config/datacollection" name="cambium_ptp670">
+   <resourceType name="phyInstancedStatusTableIndex" label="Cambium Phy Status" resourceLabel="Phy ${index}">
+     <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+     <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <group name="genericNodeAttributes" ifType="ignore">
+      <mibObj oid=".1.3.6.1.2.1.1.5" instance="0" alias="siteSysName" type="string"/>
+      <mibObj oid=".1.3.6.1.2.1.1.6" instance="0" alias="siteSysLocation" type="string"/>
+   </group>
+   <group name="cambium_ptp670_config" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.1"  instance="0" alias="cmbIPv4Addr" type="string" />
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.2"  instance="0" alias="cmbSubnetMsk" type="string" />
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.3"  instance="0" alias="cmbIPv4GwAddr" type="string" />
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.4"  instance="0" alias="cmbTgtMAC" type="hexstring" />
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.5"  instance="0" alias="cmbMstrSlvMode" type="gauge" /> <!--  enum -->
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.6"  instance="0" alias="cmbMaxTxPwr" type="gauge" />
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.7"  instance="0" alias="cmbAntGain" type="gauge" />
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.8"  instance="0" alias="cmbCblLoss" type="gauge" />
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.9"  instance="0" alias="cmbeIRP" type="gauge" />
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.11" instance="0" alias="cmbChnlBw" type="gauge" /> <!-- enum -->
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.14" instance="0" alias="cmbLinkName" type="string" />
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.15" instance="0" alias="cmbSiteName" type="string" />
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.16" instance="0" alias="cmbAccsMthd" type="gauge" /> <!-- enum -->
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.17" instance="0" alias="cmbGrpId" type="gauge" />
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.18" instance="0" alias="cmbIPv6Addr" type="string" />
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.20" instance="0" alias="cmbIpVers" type="gauge" /> 
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.21" instance="0" alias="cmbIPv6AutoLnkLocl" type="string" /> 
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.22" instance="0" alias="cmbIPv6PrfxLen" type="gauge" />             
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.23" instance="0" alias="cmbIPv6GwAddr" type="string" />             
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.24" instance="0" alias="cmbRemLnkdAddrType" type="gauge" />         
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.25" instance="0" alias="cmbRemInetAddr" type="string" />            
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.26" instance="0" alias="cmbSubbandMinFreq" type="gauge" />          
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.27" instance="0" alias="cmbSubbandMaxFreq" type="gauge" />          
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.28" instance="0" alias="cmbEnableTX" type="gauge" /> <!-- enum -->
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.29" instance="0" alias="cmbAntSelect" type="gauge" /> <!-- enum -->
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.30" instance="0" alias="cmbXmitrChanls" type="gauge" /> <!-- enum -->
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.31" instance="0" alias="cmbWirelessTopo" type="gauge" /> <!-- enum -->
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.34" instance="0" alias="cmbUnitName" type="string" />
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.35" instance="0" alias="cmbAuthzMethd" type="gauge" />
+      <mibObj oid=".1.3.6.1.4.1.17713.11.5.36" instance="0" alias="cmbRemUnitName" type="string" />
+      <property instance="0" alias="cmbMorS" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="cmbMstrSlvMode"/>
+	 <parameter key="0" value="master(0)"/>
+	 <parameter key="1" value="slave(1)"/>
+      </property>
+      <property instance="0" alias="cmbChnlBwStr" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="cmbChnlBw"/>
+	 <parameter key="0" value="bw30MHz(0)"/>
+         <parameter key="1" value="bw15MHz(1)"/>
+         <parameter key="2" value="bw10MHz(2)"/> 
+         <parameter key="3" value="bw5MHz(3)"/>
+         <parameter key="4" value="bw20MHz(4)"/>
+         <parameter key="5" value="bw56MHz(5)"/>
+         <parameter key="6" value="bw50MHz(6)"/>
+         <parameter key="7" value="bw40MHz(7)"/>
+         <parameter key="8" value="bw45MHz(8)"/>
+      </property>
+      <property instance="0" alias="cmbAccsMthdStr" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="cmbAccsMthd"/>
+	 <parameter key="0" value="linkAccess(0)"/>
+         <parameter key="1" value="linkNameAccess(1)"/>
+         <parameter key="2" value="groupAccess(2)"/>
+      </property>
+      <property instance="0" alias="cmbEnableTXStr" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="cmbEnableTX"/>
+	 <parameter key="0" value="enabled(0)" />
+	 <parameter key="1" value="muted(1)" />
+      </property>
+      <property instance="0" alias="cmbAntSelectStr" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="cmbAntSelect"/>
+	 <parameter key="0" value="integrated(0)" />
+	 <parameter key="1" value="connectorized(1)" />
+      </property>
+      <property instance="0" alias="cmbXmitrChanlsS" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="cmbXmitrChanls"/>
+	 <parameter key="0" value="handV(0)" />
+	 <parameter key="1" value="hOnly(1)" />
+	 <parameter key="2" value="vOnly(2)" />
+      </property>
+      <property instance="0" alias="cmbWirelessTopoS" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="cmbWirelessTopo"/>
+         <parameter key="0" value="pointToPoint(0)" />
+         <parameter key="1" value="highCapacityMultiPoint(1)" />
+      </property>
+      <property instance="0" alias="cmbAuthzMethdStr" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="cmbAuthzMethd"/>
+	 <parameter key="0" value="whitelist(0)" />
+	 <parameter key="1" value="blacklist(1)" />
+      </property>
+   </group>
+
+   <group name="cambium_ptp670_phy" ifType="all">
+       <mibObj oid=".1.3.6.1.4.1.17713.11.12.19.1.2"  instance="phyInstancedStatusTableIndex" alias="cmbLinkLoss" type="gauge" /> 
+       <mibObj oid=".1.3.6.1.4.1.17713.11.12.19.1.3"  instance="phyInstancedStatusTableIndex" alias="cmbRXpwr" type="gauge" />
+       <mibObj oid=".1.3.6.1.4.1.17713.11.12.19.1.4"  instance="phyInstancedStatusTableIndex" alias="cmbVectorErr" type="gauge" />
+       <mibObj oid=".1.3.6.1.4.1.17713.11.12.19.1.5"  instance="phyInstancedStatusTableIndex" alias="cmbSigStrgthRatio" type="gauge" />
+       <mibObj oid=".1.3.6.1.4.1.17713.11.12.19.1.6"  instance="phyInstancedStatusTableIndex" alias="cmbRange" type="gauge" />
+       <mibObj oid=".1.3.6.1.4.1.17713.11.12.19.1.7"  instance="phyInstancedStatusTableIndex" alias="cmbRXModMode" type="gauge" />
+       <mibObj oid=".1.3.6.1.4.1.17713.11.12.19.1.8"  instance="phyInstancedStatusTableIndex" alias="cmbTXModMode" type="gauge" />
+       <mibObj oid=".1.3.6.1.4.1.17713.11.12.19.1.9"  instance="phyInstancedStatusTableIndex" alias="cmbSrchState" type="gauge" />
+       <mibObj oid=".1.3.6.1.4.1.17713.11.12.19.1.10" instance="phyInstancedStatusTableIndex" alias="cmbRemMacAddr" type="hexstring" />
+       <mibObj oid=".1.3.6.1.4.1.17713.11.12.19.1.11" instance="phyInstancedStatusTableIndex" alias="cmbRawRXPwr" type="gauge" />
+       <mibObj oid=".1.3.6.1.4.1.17713.11.12.19.1.12" instance="phyInstancedStatusTableIndex" alias="cmbTXpwr" type="gauge" />	   
+       <property instance="phyInstancedStatusTableIndex" alias="cmbRXModModeS" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="cmbRXModMode"/>
+         <parameter key="0" value="modAcquisition(0)" />
+         <parameter key="1" value="modBpsk63percent(1)" />
+         <parameter key="2" value="modQpsk63percentSingle(2)" />
+         <parameter key="3" value="modTransient1(3)" />
+         <parameter key="4" value="modQpsk87percentSingle(4)" />
+         <parameter key="5" value="modTransient2(5)" />
+         <parameter key="6" value="mod16qam63percentSingleA(6)" />
+         <parameter key="7" value="modTransient3(7)" />
+         <parameter key="8" value="mod16qam87percentSingle(8)" />
+         <parameter key="9" value="modTransient4(9)" />
+         <parameter key="10" value="mod64qam75percentSingle(10)" />
+         <parameter key="11" value="modTransient5(11)" />
+         <parameter key="12" value="mod64qam92percentSingle(12)" />
+         <parameter key="13" value="modTransient6(13)" />
+         <parameter key="14" value="mod256qam81percentSingle(14)" />
+         <parameter key="15" value="mod16qam63percentSingleB(15)" />
+         <parameter key="16" value="mod16qam63percentDual(16)" />
+         <parameter key="17" value="modTransient7(17)" />
+         <parameter key="18" value="mod16qam87percentDual(18)" />
+         <parameter key="19" value="modTransient8(19)" />
+         <parameter key="20" value="mod64qam75percentDual(20)" />
+         <parameter key="21" value="modTransient9(21)" />
+         <parameter key="22" value="mod64qam92percentDual(22)" />
+         <parameter key="23" value="modTransient10(23)" />
+         <parameter key="24" value="mod256qam81percentDual(24)" />
+         <parameter key="25" value="modTransient11(25)" />
+         <parameter key="26" value="mod256qam94percentSingle(26)" />
+         <parameter key="27" value="modTransient12(27)" />
+         <parameter key="28" value="mod256qam94percentDual(28)" />
+      </property>
+       <property instance="phyInstancedStatusTableIndex" alias="cmbTXModModeS" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="cmbTXModMode"/>
+         <parameter key="0" value="modAcquisition(0)" />
+         <parameter key="1" value="modBpsk63percent(1)" />
+         <parameter key="2" value="modQpsk63percentSingle(2)" />
+         <parameter key="3" value="modTransient1(3)" />
+         <parameter key="4" value="modQpsk87percentSingle(4)" />
+         <parameter key="5" value="modTransient2(5)" />
+         <parameter key="6" value="mod16qam63percentSingleA(6)" />
+         <parameter key="7" value="modTransient3(7)" />
+         <parameter key="8" value="mod16qam87percentSingle(8)" />
+         <parameter key="9" value="modTransient4(9)" />
+         <parameter key="10" value="mod64qam75percentSingle(10)" />
+         <parameter key="11" value="modTransient5(11)" />
+         <parameter key="12" value="mod64qam92percentSingle(12)" />
+         <parameter key="13" value="modTransient6(13)" />
+         <parameter key="14" value="mod256qam81percentSingle(14)" />
+         <parameter key="15" value="mod16qam63percentSingleB(15)" />
+         <parameter key="16" value="mod16qam63percentDual(16)" />
+         <parameter key="17" value="modTransient7(17)" />
+         <parameter key="18" value="mod16qam87percentDual(18)" />
+         <parameter key="19" value="modTransient8(19)" />
+         <parameter key="20" value="mod64qam75percentDual(20)" />
+         <parameter key="21" value="modTransient9(21)" />
+         <parameter key="22" value="mod64qam92percentDual(22)" />
+         <parameter key="23" value="modTransient10(23)" />
+         <parameter key="24" value="mod256qam81percentDual(24)" />
+         <parameter key="25" value="modTransient11(25)" />
+         <parameter key="26" value="mod256qam94percentSingle(26)" />
+         <parameter key="27" value="modTransient12(27)" />
+         <parameter key="28" value="mod256qam94percentDual(28)" />
+      </property>
+      <property instance="phyInstancedStatusTableIndex" alias="" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value=""/>
+	 <parameter key="0" value="registering(0)"/>
+         <parameter key="1" value="searching(1)"/>
+         <parameter key="2" value="acquiring(2)"/>
+      </property>
+   </group>
+   <systemDef name="cambium_ptp670">
+      <sysoid>.1.3.6.1.4.1.17713.11</sysoid>
+      <collect>
+         <includeGroup>cambium_ptp670_config</includeGroup>
+         <includeGroup>cambium_ptp670_phy</includeGroup>
+         <includeGroup>genericNodeAttributes</includeGroup>
+      </collect>
+   </systemDef>
+</datacollection-group>

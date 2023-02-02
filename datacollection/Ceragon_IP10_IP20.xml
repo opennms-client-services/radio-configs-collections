@@ -1,0 +1,296 @@
+<?xml version="1.0" ?>
+<datacollection-group xmlns="http://xmlns.opennms.org/xsd/config/datacollection" name="ceragon_ip10_ip20">
+
+  <resourceType name="ip20afwver" label="Software Versions" resourceLabel="IDU running sw version ${ip20aswvername}">
+    <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+    <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+  </resourceType>
+
+  <resourceType name="abcGroupEntry" label="ABC Groups" resourceLabel=" ${ifName} ${ifIndex}">
+    <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+    <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+  </resourceType>
+
+  <resourceType name="slotConfigEntry" label="Slot Config" resourceLabel="${CgSlotNameTXT} ${CgSlotCardTypeTXT} ${CgSlotAdmStateTXT}">
+    <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+    <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+  </resourceType>
+
+   <group name="genericNodeAttributes" ifType="ignore">
+      <mibObj oid=".1.3.6.1.2.1.1.5" instance="0" alias="siteSysName" type="string"/>
+      <mibObj oid=".1.3.6.1.2.1.1.6" instance="0" alias="siteSysLocation" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.2281.10.3.1.3" instance="0" alias="siteSysMaxAlarmSev" type="gauge"/>
+      <property instance="node" alias="SiteMaxAlarmSevrty" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+        <parameter key="enum-attribute" value="siteSysMaxAlarmSev"/>
+        <parameter key="0" value="indeterminate(0)"/>
+        <parameter key="1" value="critical(1)"/>
+        <parameter key="2" value="major(2)"/>
+        <parameter key="3" value="minor(3)"/>
+        <parameter key="4" value="warning(4)"/>
+        <parameter key="5" value="cleared(5)"/>
+      </property>
+   </group>
+
+  <group name="ceragon_ip10_ip20_slot_config" ifType="all">
+     <mibObj oid=".1.3.6.1.4.1.2281.10.1.5.8.1.1" instance="slotConfigEntry" alias="CgSlotName" type="gauge"/>
+     <mibObj oid=".1.3.6.1.4.1.2281.10.1.5.8.1.2" instance="slotConfigEntry" alias="CgSlotCardType" type="gauge"/>
+     <mibObj oid=".1.3.6.1.4.1.2281.10.1.5.8.1.3" instance="slotConfigEntry" alias="CgSlotLabel" type="string"/>
+     <mibObj oid=".1.3.6.1.4.1.2281.10.1.5.8.1.4" instance="slotConfigEntry" alias="CgSlotAdmState" type="gauge"/>
+     <property instance="slotConfigEntry" alias="CgSlotNameTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+       <parameter key="enum-attribute" value="CgSlotName"/>
+       <parameter key="1" value="slot1 "/>
+       <parameter key="2" value="slot2 "/>
+       <parameter key="3" value="slot3 "/>
+       <parameter key="4" value="slot4 "/>
+       <parameter key="5" value="slot5 "/>
+       <parameter key="6" value="slot6 "/>
+       <parameter key="7" value="slot7 "/>
+       <parameter key="8" value="slot8 "/>
+       <parameter key="9" value="slot9 "/>
+       <parameter key="10" value="slot10"/>
+       <parameter key="11" value="slot11"/>
+       <parameter key="12" value="slot12"/>
+    </property>
+    <property instance="slotConfigEntry" alias="CgSlotCardTypeTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+       <parameter key="enum-attribute" value="CgSlotCardType"/>
+       <parameter key="0" value="cleared(0)"/>
+       <parameter key="10" value="nexusSc(10)"/>
+       <parameter key="11" value="nexusScLp(11)"/>
+       <parameter key="12" value="nexusDc(12)"/>
+       <parameter key="13" value="nexusQc(13)"/>
+       <parameter key="19" value="tccR(19)"/>
+       <parameter key="20" value="tccA(20)"/>
+       <parameter key="21" value="tccB(21)"/>
+       <parameter key="22" value="rmcA(22)"/>
+       <parameter key="23" value="rmcB(23)"/>
+       <parameter key="24" value="rmcNDc(24)"/>
+       <parameter key="25" value="nativeTdm16xE1T1(25)"/>
+       <parameter key="26" value="pwe3-16xE1T1(26)"/>
+       <parameter key="27" value="tdm1xStm1(27)"/>
+       <parameter key="28" value="tdm1xOc3(28)"/>
+       <parameter key="29" value="eLicEth4x1GEA(29)"/>
+       <parameter key="30" value="chassis1U2U(30)"/>
+       <parameter key="31" value="capacityBooster(31)"/>
+       <parameter key="32" value="pwe3-1xSTM1(32)"/>
+       <parameter key="33" value="pdc48v2uSingleFeed(33)"/>
+       <parameter key="34" value="pdc48v1uSingleFeed(34)"/>
+       <parameter key="35" value="pdc48v1uDualFeed(35)"/>
+       <parameter key="36" value="fan2U(36)"/>
+       <parameter key="37" value="fan1U(37)"/>
+       <parameter key="38" value="test-card(38)"/>
+       <parameter key="39" value="pdc24v2uSingleFeed(39)"/>
+       <parameter key="40" value="pdc24v1uSingleFeed(40)"/>
+       <parameter key="41" value="pdc24v1uDualFeed(41)"/>
+       <parameter key="42" value="unknownCard(42)"/>
+       <parameter key="43" value="ricE(43)"/>
+       <parameter key="44" value="trafficFpga(44)"/>
+       <parameter key="45" value="essFpga(45)"/>
+       <parameter key="46" value="tressFpga(46)"/>
+       <parameter key="47" value="ip20g(47)"/>
+       <parameter key="48" value="licXe4opt(48)"/>
+       <parameter key="49" value="tccBmc(49)"/>
+       <parameter key="50" value="rmcE(50)"/>
+       <parameter key="51" value="licStm1oc3rst(51)"/>
+       <parameter key="52" value="vband10gMini(52)"/>
+       <parameter key="53" value="ip20cEband(53)"/>
+       <parameter key="54" value="tccA2(54)"/>
+       <parameter key="55" value="tccA2mc(55)"/>
+       <parameter key="56" value="tccB2(56)"/>
+       <parameter key="57" value="ricA(57)"/>
+       <parameter key="58" value="ip20gx(58)"/>
+       <parameter key="59" value="tccB2mc(59)"/>
+       <parameter key="60" value="tccB2xg(60)"/>
+       <parameter key="61" value="ip20f(61)"/>
+       <parameter key="62" value="licX10e(62)"/>
+       <parameter key="63" value="ricD(63)"/>
+    </property>
+    <property instance="slotConfigEntry" alias="CgSlotAdmStateTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+       <parameter key="enum-attribute" value="CgSlotAdmState"/>
+       <parameter key="1" value="Unknown(1)"/>
+       <parameter key="2" value="Enable(2)"/>
+       <parameter key="3" value="Disable(3)"/>
+    </property>
+  </group>
+
+  <group name="ceragon_ip10_ip20_misc_abc" ifType="all">
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.3.1.4" instance="ifIndex" alias="AbcAggCapacityRX" type="gauge"/> 
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.3.1.5" instance="ifIndex" alias="AbcAggCapacityTX" type="gauge"/> 
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.3.1.7" instance="ifIndex" alias="AbcGrpCh1Capacity" type="gauge"/> 
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.3.1.9" instance="ifIndex" alias="AbcGrpCh2Capacity" type="gauge"/> 
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.3.1.11" instance="ifIndex" alias="AbcGrpCh3Capacity" type="gauge"/> 
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.3.1.13" instance="ifIndex" alias="AbcGrpCh4Capacity" type="gauge"/> 
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.3.1.15" instance="ifIndex" alias="AbcGrpCh5Capacity" type="gauge"/> 
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.3.1.17" instance="ifIndex" alias="AbcGrpCh6Capacity" type="gauge"/> 
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.3.1.19" instance="ifIndex" alias="AbcGrpCh7Capacity" type="gauge"/> 
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.3.1.21" instance="ifIndex" alias="AbcGrpCh8Capacity" type="gauge"/> 
+  </group>
+
+  <group name="ceragon_ip10_ip20_member_abc" ifType="all">
+     <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.2.1.1" instance="ifIndex" alias="AbcGrpIfIndex" type="string"/> 
+     <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.2.1.2" instance="ifIndex" alias="AbcGrpID" type="string"/> 
+     <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.2.1.3" instance="ifIndex" alias="AbcMember1IfIdx" type="string"/> 
+     <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.2.1.5" instance="ifIndex" alias="AbcMember2IfIdx" type="string"/> 
+     <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.2.1.7" instance="ifIndex" alias="AbcMember3IfIdx" type="string"/> 
+     <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.2.1.9" instance="ifIndex" alias="AbcMember4IfIdx" type="string"/> 
+     <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.2.1.11" instance="ifIndex" alias="AbcMember5IfIdx" type="string"/> 
+     <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.2.1.13" instance="ifIndex" alias="AbcMember6IfIdx" type="string"/> 
+     <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.2.1.15" instance="ifIndex" alias="AbcMember7IfIdx" type="string"/> 
+     <mibObj oid=".1.3.6.1.4.1.2281.10.7.8.5.2.1.17" instance="ifIndex" alias="AbcMember8IfIdx" type="string"/> 
+  </group>
+  <group name="ceragon_ip20_system" ifType="ignore">
+    <mibObj oid=".1.3.6.1.4.1.2281.10.1.2.10.1.1.2" instance="127" alias="ip1020systemtype" type="string"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.1.2.10.1.1.6" instance="127" alias="ip1020serialnumber" type="string"/>
+  </group>
+  <group name="ceragon_ip10_ip20_fw" ifType="ignore">
+    <mibObj oid=".1.3.6.1.4.1.2281.10.4.1.13.1.1.2" instance="ip20afwver" alias="ip20aswvername" type="string"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.4.1.13.1.1.3" instance="ip20afwver" alias="ip20aswverdev" type="string"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.4.1.13.1.1.4" instance="ip20afwver" alias="ip20arunningver" type="string"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.4.1.13.1.1.5" instance="ip20afwver" alias="ip20atargetver" type="string"/>
+  </group>
+
+  <group name="ceragon_ip10_ip20_RfuStatusEntry" ifType="ignore">
+    <mibObj oid=".1.3.6.1.4.1.2281.10.5.1.1.1" instance="ifIndex" alias="RfuStatId" type="string"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.5.1.1.2" instance="ifIndex" alias="RfuStatRxLvl" type="gauge"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.5.1.1.3" instance="ifIndex" alias="RfuStatTxLvl" type="gauge"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.5.1.1.23" instance="ifIndex" alias="RfuStatBand" type="gauge"/> <!-- enum -->
+    <mibObj oid=".1.3.6.1.4.1.2281.10.5.1.1.24" instance="ifIndex" alias="RfuStatPATemp" type="gauge"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.5.1.1.25" instance="ifIndex" alias="RfuStatTxMute" type="gauge"/> <!-- enum -->
+    <mibObj oid=".1.3.6.1.4.1.2281.10.5.1.1.30" instance="ifIndex" alias="RfuStatComm" type="gauge"/> <!-- enum -->
+    <mibObj oid=".1.3.6.1.4.1.2281.10.5.2.1.1" instance="ifIndex" alias="RfuCfgId" type="gauge"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.5.2.1.2" instance="ifIndex" alias="RfuCfgMaxTxLvl" type="gauge"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.5.2.1.3" instance="ifIndex" alias="RfuCfgTxFrq" type="gauge"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.5.2.1.4" instance="ifIndex" alias="RfuCfgRxFrq" type="gauge"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.5.2.1.5" instance="ifIndex" alias="RfuCfgATPCAdmin" type="gauge"/> <!-- enum -->
+    <mibObj oid=".1.3.6.1.4.1.2281.10.5.2.1.6" instance="ifIndex" alias="RfuCfgATPCRefRSL" type="gauge"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.5.2.1.7" instance="ifIndex" alias="RfuCfgMuteTx" type="gauge"/> <!-- enum -->
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.1.1.2" instance="ifIndex" alias="RadStatMSE" type="gauge"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.1.1.3" instance="ifIndex" alias="RadStatDfctBlks" type="counter"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.1.1.4" instance="ifIndex" alias="RadStatBER" type="counter"/> <!-- enum -->
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.1.1.5" instance="ifIndex" alias="RadStatXPI" type="gauge"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.2.1.9" instance="ifIndex" alias="RadCfgRadStatus" type="gauge"/> <!-- enum -->
+    <property instance="ifIndex" alias="RfuStatBandTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+       <parameter key="enum-attribute" value="RfuStatBand"/>
+       <parameter key="1" value="unknown(0)"/>
+       <parameter key="2" value="band-18(2)"/>
+       <parameter key="3" value="band-23(3)"/>
+       <parameter key="4" value="band-26(4)"/>
+       <parameter key="5" value="band-28(5)"/>
+       <parameter key="6" value="band-38(6)"/>
+       <parameter key="7" value="band-29(7)"/>
+       <parameter key="8" value="band-31(8)"/>
+       <parameter key="9" value="band-15(9)"/>
+       <parameter key="10" value="band-13(10)"/>
+       <parameter key="11" value="band-10dot5-11(11)"/>
+       <parameter key="12" value="band-7-8(12)"/>
+       <parameter key="13" value="band-6L-6H(13)"/>
+       <parameter key="14" value="band-32(14)"/>
+    </property>
+    <property instance="ifIndex" alias="RfuStatTxMuteT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+       <parameter key="enum-attribute" value="RfuStatTxMute"/>
+       <parameter key="1" value="On(1)"/>
+       <parameter key="0" value="Off(0)"/>
+    </property>
+    <property instance="ifIndex" alias="RfuStatCommTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+       <parameter key="enum-attribute" value="RfuStatComm"/>
+       <parameter key="0" value="Down(0)"/>
+       <parameter key="1" value="Up(1)"/>
+    </property>
+    <property instance="ifIndex" alias="RfuCfgATPCAdmTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+       <parameter key="enum-attribute" value="RfuCfgATPCAdmin"/>
+       <parameter key="1" value="Unknown(1)"/>
+       <parameter key="2" value="Enable(2)"/>
+       <parameter key="3" value="Disable(3)"/>
+    </property>
+    <property instance="ifIndex" alias="RfuCfgMuteTxTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+       <parameter key="enum-attribute" value="RfuCfgMuteTx"/>
+       <parameter key="1" value="Unknown(1)"/>
+       <parameter key="2" value="On(2)"/>
+       <parameter key="3" value="Off(3)"/>
+    </property>
+    <property instance="ifIndex" alias="RadCfgRadStatTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+       <parameter key="enum-attribute" value="RadCfgRadStatus"/>
+       <parameter key="0" value="Down(0)"/>
+       <parameter key="1" value="Up(1)"/>
+    </property>
+  </group>
+  
+  <group name="ceragon_ip10_ip20_MRMC" ifType="ignore">
+     <mibObj oid=".1.3.6.1.4.1.2281.10.7.4.1.1.5"  instance="ifIndex" alias="ip1020CurTXprof" type="gauge"/> 
+     <mibObj oid=".1.3.6.1.4.1.2281.10.7.4.1.1.6"  instance="ifIndex" alias="ip1020CurTXQAM" type="gauge"/>
+     <mibObj oid=".1.3.6.1.4.1.2281.10.7.4.1.1.7"  instance="ifIndex" alias="ip1020CurTxBitrt" type="gauge"/>
+     <mibObj oid=".1.3.6.1.4.1.2281.10.7.4.1.1.9"  instance="ifIndex" alias="ip1020CurRXprof" type="gauge"/>
+     <mibObj oid=".1.3.6.1.4.1.2281.10.7.4.1.1.10" instance="ifIndex" alias="ip1020CurRXQAM" type="gauge"/> 
+     <mibObj oid=".1.3.6.1.4.1.2281.10.7.4.1.1.11" instance="ifIndex" alias="ip1020CurRXBitrt" type="gauge"/> 
+  </group>
+
+  <group name="ceragon_ip10_ip20_RemoteRadioEntry" ifType="ignore">
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.3.1.1.3" instance="ifIndex" alias="ip1020peerip" type="string"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.3.1.1.4" instance="ifIndex" alias="ip1020remrsl" type="gauge"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.3.1.1.6" instance="ifIndex" alias="ip1020remtxfreq" type="string"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.3.1.1.7" instance="ifIndex" alias="ip1020remrxfreq" type="string"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.3.1.1.8" instance="ifIndex" alias="ip1020rematpcrsl" type="gauge"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.3.1.1.13" instance="ifIndex" alias="ip1020remslot" type="string"/>
+  </group>
+  <group name="ceragon_ip10_ip20_uptime" ifType="ignore">
+    <mibObj oid="1.3.6.1.2.1.1.3" instance="0" alias="ip20a2u_sysUpTime" type="gauge"/>
+  </group>
+  <systemDef name="ceragon_ip20a_systemDef">
+    <sysoid>.1.3.6.1.4.1.2281.1.20.1.2.2</sysoid>
+    <collect>
+      <includeGroup>ceragon_ip20_system</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_fw</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_RfuStatusEntry</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_RemoteRadioEntry</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_uptime</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_misc_abc</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_member_abc</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_slot_config</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_MRMC</includeGroup>
+      <includeGroup>genericNodeAttributes</includeGroup>
+    </collect>
+  </systemDef>
+  <systemDef name="ceragon_ip20a_1RU_systemDef">
+    <sysoid>.1.3.6.1.4.1.2281.1.20.1.1.2</sysoid>
+    <collect>
+      <includeGroup>ceragon_ip20_system</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_fw</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_RfuStatusEntry</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_RemoteRadioEntry</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_uptime</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_misc_abc</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_member_abc</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_slot_config</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_MRMC</includeGroup>
+      <includeGroup>genericNodeAttributes</includeGroup>
+    </collect>
+  </systemDef>
+  <systemDef name="ceragon_ip20c_systemDef">
+    <sysoid>.1.3.6.1.4.1.2281.1.20.2.2</sysoid>
+    <collect>
+      <includeGroup>ceragon_ip20_system</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_fw</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_RfuStatusEntry</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_RemoteRadioEntry</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_uptime</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_misc_abc</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_member_abc</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_slot_config</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_MRMC</includeGroup>
+      <includeGroup>genericNodeAttributes</includeGroup>
+    </collect>
+  </systemDef>
+  <systemDef name="ceragon_ip10_systemDef">
+    <sysoidMask>.1.3.6.1.4.1.2281.1.7.</sysoidMask>
+    <collect>
+      <includeGroup>ceragon_ip10_ip20_fw</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_RfuStatusEntry</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_RemoteRadioEntry</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_uptime</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_misc_abc</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_member_abc</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_slot_config</includeGroup>
+      <includeGroup>ceragon_ip10_ip20_MRMC</includeGroup>
+      <includeGroup>genericNodeAttributes</includeGroup>
+    </collect>
+  </systemDef>
+</datacollection-group>
