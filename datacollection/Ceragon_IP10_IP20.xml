@@ -168,7 +168,7 @@
     <mibObj oid=".1.3.6.1.4.1.2281.10.7.1.1.4" instance="ifIndex" alias="RadStatBER" type="counter"/> <!-- enum -->
     <mibObj oid=".1.3.6.1.4.1.2281.10.7.1.1.5" instance="ifIndex" alias="RadStatXPI" type="gauge"/>
     <mibObj oid=".1.3.6.1.4.1.2281.10.7.2.1.9" instance="ifIndex" alias="RadCfgRadStatus" type="gauge"/> <!-- enum -->
-    <property instance="ifIndex" alias="RfuStatBandTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+    <property instance="if" alias="RfuStatBandTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
        <parameter key="enum-attribute" value="RfuStatBand"/>
        <parameter key="1" value="unknown(0)"/>
        <parameter key="2" value="band-18(2)"/>
@@ -185,29 +185,29 @@
        <parameter key="13" value="band-6L-6H(13)"/>
        <parameter key="14" value="band-32(14)"/>
     </property>
-    <property instance="ifIndex" alias="RfuStatTxMuteT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+    <property instance="if" alias="RfuStatTxMuteT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
        <parameter key="enum-attribute" value="RfuStatTxMute"/>
        <parameter key="1" value="On(1)"/>
        <parameter key="0" value="Off(0)"/>
     </property>
-    <property instance="ifIndex" alias="RfuStatCommTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+    <property instance="if" alias="RfuStatCommTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
        <parameter key="enum-attribute" value="RfuStatComm"/>
        <parameter key="0" value="Down(0)"/>
        <parameter key="1" value="Up(1)"/>
     </property>
-    <property instance="ifIndex" alias="RfuCfgATPCAdmTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+    <property instance="if" alias="RfuCfgATPCAdmTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
        <parameter key="enum-attribute" value="RfuCfgATPCAdmin"/>
        <parameter key="1" value="Unknown(1)"/>
        <parameter key="2" value="Enable(2)"/>
        <parameter key="3" value="Disable(3)"/>
     </property>
-    <property instance="ifIndex" alias="RfuCfgMuteTxTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+    <property instance="if" alias="RfuCfgMuteTxTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
        <parameter key="enum-attribute" value="RfuCfgMuteTx"/>
        <parameter key="1" value="Unknown(1)"/>
        <parameter key="2" value="On(2)"/>
        <parameter key="3" value="Off(3)"/>
     </property>
-    <property instance="ifIndex" alias="RadCfgRadStatTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+    <property instance="if" alias="RadCfgRadStatTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
        <parameter key="enum-attribute" value="RadCfgRadStatus"/>
        <parameter key="0" value="Down(0)"/>
        <parameter key="1" value="Up(1)"/>
@@ -223,7 +223,15 @@
      <mibObj oid=".1.3.6.1.4.1.2281.10.7.4.1.1.11" instance="ifIndex" alias="ip1020CurRXBitrt" type="gauge"/> 
   </group>
 
-  <group name="ceragon_ip10_ip20_RemoteRadioEntry" ifType="all">
+  <group name="ceragon_ip10_RemoteRadioEntry" ifType="all"> <!-- the IP-120 swaps the remote RX abd TX frequencies, so swap them back here -->
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.3.1.1.3" instance="ifIndex" alias="ip1020peerip" type="string"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.3.1.1.4" instance="ifIndex" alias="ip1020remrsl" type="gauge"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.3.1.1.6" instance="ifIndex" alias="ip1020remrxfreq" type="string"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.3.1.1.7" instance="ifIndex" alias="ip1020remtxfreq" type="string"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.3.1.1.8" instance="ifIndex" alias="ip1020rematpcrsl" type="gauge"/>
+    <mibObj oid=".1.3.6.1.4.1.2281.10.7.3.1.1.13" instance="ifIndex" alias="ip1020remslot" type="string"/>
+  </group>
+  <group name="ceragon_ip20_RemoteRadioEntry" ifType="all">
     <mibObj oid=".1.3.6.1.4.1.2281.10.7.3.1.1.3" instance="ifIndex" alias="ip1020peerip" type="string"/>
     <mibObj oid=".1.3.6.1.4.1.2281.10.7.3.1.1.4" instance="ifIndex" alias="ip1020remrsl" type="gauge"/>
     <mibObj oid=".1.3.6.1.4.1.2281.10.7.3.1.1.6" instance="ifIndex" alias="ip1020remtxfreq" type="string"/>
@@ -240,7 +248,7 @@
       <includeGroup>ceragon_ip20_system</includeGroup>
       <includeGroup>ceragon_ip10_ip20_fw</includeGroup>
       <includeGroup>ceragon_ip10_ip20_RfuStatusEntry</includeGroup>
-      <includeGroup>ceragon_ip10_ip20_RemoteRadioEntry</includeGroup>
+      <includeGroup>ceragon_ip20_RemoteRadioEntry</includeGroup>
       <includeGroup>ceragon_ip10_ip20_uptime</includeGroup>
       <includeGroup>ceragon_ip10_ip20_misc_abc</includeGroup>
       <includeGroup>ceragon_ip10_ip20_member_abc</includeGroup>
@@ -255,7 +263,7 @@
       <includeGroup>ceragon_ip20_system</includeGroup>
       <includeGroup>ceragon_ip10_ip20_fw</includeGroup>
       <includeGroup>ceragon_ip10_ip20_RfuStatusEntry</includeGroup>
-      <includeGroup>ceragon_ip10_ip20_RemoteRadioEntry</includeGroup>
+      <includeGroup>ceragon_ip20_RemoteRadioEntry</includeGroup>
       <includeGroup>ceragon_ip10_ip20_uptime</includeGroup>
       <includeGroup>ceragon_ip10_ip20_misc_abc</includeGroup>
       <includeGroup>ceragon_ip10_ip20_member_abc</includeGroup>
@@ -270,7 +278,7 @@
       <includeGroup>ceragon_ip20_system</includeGroup>
       <includeGroup>ceragon_ip10_ip20_fw</includeGroup>
       <includeGroup>ceragon_ip10_ip20_RfuStatusEntry</includeGroup>
-      <includeGroup>ceragon_ip10_ip20_RemoteRadioEntry</includeGroup>
+      <includeGroup>ceragon_ip20_RemoteRadioEntry</includeGroup>
       <includeGroup>ceragon_ip10_ip20_uptime</includeGroup>
       <includeGroup>ceragon_ip10_ip20_misc_abc</includeGroup>
       <includeGroup>ceragon_ip10_ip20_member_abc</includeGroup>
@@ -284,7 +292,7 @@
     <collect>
       <includeGroup>ceragon_ip10_ip20_fw</includeGroup>
       <includeGroup>ceragon_ip10_ip20_RfuStatusEntry</includeGroup>
-      <includeGroup>ceragon_ip10_ip20_RemoteRadioEntry</includeGroup>
+      <includeGroup>ceragon_ip10_RemoteRadioEntry</includeGroup>
       <includeGroup>ceragon_ip10_ip20_uptime</includeGroup>
       <includeGroup>ceragon_ip10_ip20_misc_abc</includeGroup>
       <includeGroup>ceragon_ip10_ip20_member_abc</includeGroup>
