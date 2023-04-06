@@ -235,7 +235,7 @@
       <mibObj oid=".1.3.6.1.4.1.2509.9.1001.2.2.1.4.1.12" instance="ifIndex" alias="avtIfMainDesc" type="string"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.1001.2.2.1.4.1.13" instance="ifIndex" alias="avtIfMainStorTyp" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.1001.2.2.1.4.1.14" instance="ifIndex" alias="avtIfMainExtSub" type="gauge"/>
-      <property instance="ifIndex" alias="avtIfMainTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+      <property instance="if" alias="avtIfMainTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
          <parameter key="enum-attribute" value="avtIfMainType"/>
          <parameter key="5" value="rfc877x25 (5)"/>
          <parameter key="6" value="ethernetCsmacd (6)"/>
@@ -264,7 +264,7 @@
          <parameter key="247" value="ilan (247)"/>
          <parameter key="248" value="pip (248)"/>
       </property>
-      <property instance="ifIndex" alias="avtIfMainEncapTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+      <property instance="if" alias="avtIfMainEncapTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
          <parameter key="enum-attribute" value="avtIfMainEncapTyp"/>
          <parameter key="1" value="other (1)"/>
          <parameter key="2" value="nlpid (2)"/>
@@ -275,7 +275,7 @@
          <parameter key="7" value="vcMultiplexed (7)"/>
          <parameter key="8" value="ethernetV2 (8)"/>
       </property>
-      <property instance="ifIndex" alias="avtIfMainBrgPortT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+      <property instance="if" alias="avtIfMainBrgPortT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
          <parameter key="enum-attribute" value="avtIfMainBrgPort"/>
          <parameter key="1" value="providerNetworkPort (1)"/>
          <parameter key="2" value="customerNetworkPortPortBased (2)"/>
@@ -290,12 +290,12 @@
          <parameter key="11" value="providerInstancePort (11)"/>
          <parameter key="12" value="customerBackbonePort (12)"/>
       </property>
-      <property instance="ifIndex" alias="avtIfMainNetTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+      <property instance="if" alias="avtIfMainNetTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
          <parameter key="enum-attribute" value="avtIfMainNetTyp"/>
          <parameter key="1" value="lan (1)"/>
          <parameter key="2" value="wan (2)"/>
       </property>
-      <property instance="ifIndex" alias="avtIfMainWanTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+      <property instance="if" alias="avtIfMainWanTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
          <parameter key="enum-attribute" value="avtIfMainWanType"/>
          <parameter key="0" value="other (0)"/>
          <parameter key="1" value="private (1)"/>
