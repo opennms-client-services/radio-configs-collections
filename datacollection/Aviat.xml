@@ -1,39 +1,36 @@
 <datacollection-group xmlns="http://xmlns.opennms.org/xsd/config/datacollection" name="Aviat">
-   <resourceType name="avtRfConfigEntry" label="avtRfConfigEntry" resourceLabel="${index}">
+
+   <resourceType name="avtRfConfigEntry" label="Aviat RF Config" resourceLabel="${avtRfCfgName} (${index})">
       <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
       <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
    </resourceType>
-   <resourceType name="avtRfATPCEntry" label="avtRfATPCEntry" resourceLabel="${index}">
+   <resourceType name="avtRfATPCEntry" label="Aviat RF ATPC Parameters" resourceLabel="${avtRfATPCName} (${index})">
       <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
       <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
    </resourceType>
-   <resourceType name="avtRfuCapabilityEntry" label="avtRfuCapabilityEntry" resourceLabel="${index}">
+   <resourceType name="avtRfuCapabilityEntry" label="Aviat RFU Capabilities" resourceLabel="${avtRfuCapName} (${index})">
       <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
       <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
    </resourceType>
-   <resourceType name="avtRfuTxSpacngEntry" label="avtRfuTxSpacngEntry" resourceLabel="${index}">
+   <resourceType name="avtRfuDetailsEntry" label="Aviat RFU Details" resourceLabel="${avtRfuDetailsName} (${index})">
       <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
       <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
    </resourceType>
-   <resourceType name="avtRfuDetailsEntry" label="avtRfuDetailsEntry" resourceLabel="${index}">
+   <resourceType name="avtRfACUEntry" label="RF Antenna Coupling Unit Parameters" resourceLabel="${avtRfACUName} (${index})">
       <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
       <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
    </resourceType>
-   <resourceType name="avtRfACUEntry" label="avtRfACUEntry" resourceLabel="${index}">
+   <resourceType name="aviatRxPerformEntry" label="Aviat Rx Performance" resourceLabel="${aviatRxPerfName} (${index})">
       <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
       <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
    </resourceType>
-   <resourceType name="aviatRxPerformEntry" label="aviatRxPerformEntry" resourceLabel="${index}">
-      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
-      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
-   </resourceType>
-   <resourceType name="aviatEntity" label="Aviat Radio Device" resourceLabel="${avtEntPhysName} ${index}">
+   <resourceType name="aviatEntity" label="Aviat Entity Sensor" resourceLabel="${avtEntPhysName} (${index})">
       <persistenceSelectorStrategy class="org.opennms.netmgt.collectd.PersistRegexSelectorStrategy">
-         <parameter key="match-expression" value="(#avtEntPhysName matches '^.*Radio.*$')"/>
+         <parameter key="match-expression" value="(#avtEntPhysName matches 'Radio.*|Remote.*|Current.*|Local.*|Average.*')"/>
       </persistenceSelectorStrategy>
       <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
    </resourceType>
-   <resourceType name="aviatL1LAGroup" label="aviatL1LAGroup" resourceLabel="Aviat L1LA Group ${index}">
+   <resourceType name="aviatL1LAGroup" label="Aviat L1LA Group" resourceLabel="Group ${index}">
       <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
       <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
    </resourceType>
@@ -44,11 +41,22 @@
       <mibObj oid=".1.3.6.1.4.1.2509.9.1001.13.2.1.1" instance="0" alias="siteSwitchName" type="string"/>
    </group>
 
-   <group name="aviatEntity" ifType="ignore">
+   <group name="aviatEntityName" ifType="all">
       <mibObj oid=".1.3.6.1.2.1.47.1.1.1.1.7" instance="aviatEntity" alias="avtEntPhysName" type="string"/>
    </group>
 
+   <group name="aviatEntity" ifType="all">
+      <mibObj oid=".1.3.6.1.2.1.47.1.1.1.1.7" instance="aviatEntity" alias="avtEntPhysName" type="string"/>
+      <mibObj oid=".1.3.6.1.2.1.99.1.1.1.1" instance="aviatEntity" alias="avtEntSnsType" type="string"/>
+      <mibObj oid=".1.3.6.1.2.1.99.1.1.1.2" instance="aviatEntity" alias="avtEntSnsScale" type="gauge"/> <!-- enum -->
+      <mibObj oid=".1.3.6.1.2.1.99.1.1.1.3" instance="aviatEntity" alias="avtEntSnsPrecsn" type="gauge"/>
+      <mibObj oid=".1.3.6.1.2.1.99.1.1.1.4" instance="aviatEntity" alias="avtEntSnsVal" type="gauge"/>
+      <mibObj oid=".1.3.6.1.2.1.99.1.1.1.5" instance="aviatEntity" alias="avtEntSnsOper" type="gauge"/> <!-- enum -->
+      <mibObj oid=".1.3.6.1.2.1.99.1.1.1.6" instance="aviatEntity" alias="avtEntSnsUnit" type="string"/>
+   </group>
+
    <group name="avtRfConfigTable" ifType="all">
+      <mibObj oid=".1.3.6.1.2.1.47.1.1.1.1.7" instance="avtRfConfigEntry" alias="avtRfCfgName" type="string"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.1.1.1" instance="avtRfConfigEntry" alias="avtRfFreqTx" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.1.1.2" instance="avtRfConfigEntry" alias="avtRfFreqRx" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.1.1.3" instance="avtRfConfigEntry" alias="avtRfPwrSet" type="gauge"/>
@@ -79,6 +87,7 @@
       </property>
    </group>
    <group name="avtRfATPCTable" ifType="all">
+      <mibObj oid=".1.3.6.1.2.1.47.1.1.1.1.7" instance="avtRfATPCEntry" alias="avtRfATPCName" type="string"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.2.1.1" instance="avtRfATPCEntry" alias="avtRfATPCEnabled" type="string"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.2.1.2" instance="avtRfATPCEntry" alias="aviRfATPTgtFadeMarg" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.2.1.3" instance="avtRfATPCEntry" alias="avtRfATPCMaxPwr" type="gauge"/>
@@ -96,6 +105,7 @@
       </property>
    </group>
    <group name="avtRfuCapabilityTable" ifType="all">
+      <mibObj oid=".1.3.6.1.2.1.47.1.1.1.1.7" instance="avtRfuCapabilityEntry" alias="avtRfuCapName" type="string"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.1" instance="avtRfuCapabilityEntry" alias="avtRfuTxFreqMax" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.2" instance="avtRfuCapabilityEntry" alias="avtRfuTxFreqMin" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.3.1.3" instance="avtRfuCapabilityEntry" alias="avtRfuRxFreqMax" type="gauge"/>
@@ -154,11 +164,8 @@
          <parameter key="1" value="fullBand (3)"/>
       </property>
    </group>
-   <group name="avtRfuTxSpacngTable" ifType="all">
-      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.4.1.1" instance="avtRfuTxSpacngEntry" alias="avtRfuTxSpacIndex" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.4.1.2" instance="avtRfuTxSpacngEntry" alias="avtRfuTxSpacFreq" type="gauge"/>
-   </group>
    <group name="avtRfuDetailsTable" ifType="all">
+      <mibObj oid=".1.3.6.1.2.1.47.1.1.1.1.7" instance="avtRfuDetailsEntry" alias="avtRfuDetailsName" type="string"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.5.1.1" instance="avtRfuDetailsEntry" alias="avtRfuType" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.5.1.2" instance="avtRfuDetailsEntry" alias="avtRfuFreqBand" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.5.1.3" instance="avtRfuDetailsEntry" alias="avtRfuPwrAmp" type="gauge"/>
@@ -195,6 +202,7 @@
       </property>
    </group>
    <group name="avtRfACUTable" ifType="all">
+      <mibObj oid=".1.3.6.1.2.1.47.1.1.1.1.7" instance="avtRfACUEntry" alias="avtRfACUName" type="string"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.6.1.1" instance="avtRfACUEntry" alias="avtRfACUTxFltrBand" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.6.1.2" instance="avtRfACUEntry" alias="avtRfACUTxCtrFreq" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.5.2.6.1.3" instance="avtRfACUEntry" alias="avtRfACUTxInseLoss" type="gauge"/>
@@ -204,6 +212,7 @@
    </group>
 
    <group name="aviatRxPerformTable" ifType="all">
+      <mibObj oid=".1.3.6.1.2.1.47.1.1.1.1.7" instance="aviatRxPerformEntry" alias="aviatRxPerfName" type="string"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.15.2.2.1.3" instance="aviatRxPerformEntry" alias="avtRxRslMean" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.15.2.2.1.4" instance="aviatRxPerformEntry" alias="avtRxRslCurr" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.2509.9.15.2.2.1.5" instance="aviatRxPerformEntry" alias="avtRxRslMax" type="gauge"/>
@@ -316,16 +325,16 @@
    <systemDef name="Aviat">
       <sysoidMask>.1.3.6.1.4.1.2509.11.1.1.</sysoidMask>
       <collect>
-         <includeGroup>avtRfConfigTable</includeGroup>
+	 <includeGroup>avtRfConfigTable</includeGroup>
          <includeGroup>avtRfATPCTable</includeGroup>
          <includeGroup>avtRfuCapabilityTable</includeGroup>
          <includeGroup>avtRfuTxSpacngTable</includeGroup>
          <includeGroup>avtRfuDetailsTable</includeGroup>
          <includeGroup>avtRfACUTable</includeGroup>
-         <includeGroup>aviatRxPerformTable</includeGroup>
+	 <includeGroup>aviatRxPerformTable</includeGroup>
          <includeGroup>aviatEntity</includeGroup>
-         <includeGroup>aviatAaCfa</includeGroup>
-         <includeGroup>avtL1LAGroup</includeGroup>
+	 <includeGroup>aviatAaCfa</includeGroup>
+	 <includeGroup>avtL1LAGroup</includeGroup>
       </collect>
    </systemDef>
 </datacollection-group>
