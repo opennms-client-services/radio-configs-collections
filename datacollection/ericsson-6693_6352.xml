@@ -76,7 +76,7 @@
       <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.58" instance="ifIndex" alias="actualTxAcmTC" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.59" instance="ifIndex" alias="alignmentMode" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.60" instance="ifIndex" alias="rfLoop" type="gauge"/>
-      <property instance="ifIndex" alias="chanSpcTxt" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+      <property instance="if" alias="chanSpcTxt" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
          <parameter key="enum-attribute" value="channelSpacing"/>
          <parameter key="0" value="chspUnknown(0)"/>
          <parameter key="1" value="chsp7MHz(1)"/>
@@ -92,17 +92,7 @@
          <parameter key="11" value="chsp60MHz(11)"/>
       </property>
    </group>
-   <!--
-node[18].xfLIMappingTable[2.2129666561]
-        Group: ericsson_6693
-                node[18].xfLIMappingTable[2.2129666561].xfmappingID [.1.3.6.1.4.1.193.81.3.4.5.1.2.1.1] = 2
-node[18].xfLIMappingTable[1.2146443777]
-        Group: ericsson_6693
-                node[18].xfLIMappingTable[1.2146443777].xfmappingID [.1.3.6.1.4.1.193.81.3.4.5.1.2.1.1] = 1
-node[18].xfLIMappingTable[12.2129682945]
-        Group: ericsson_6693
-		node[18].xfLIMappingTable[12.2129682945].xfmappingID [.1.3.6.1.4.1.193.81.3.4.5.1.2.1.1] = 12
--->
+
    <group name="ericsson_6693_maptable" ifType="all">
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.2.1.1" instance="xfLIMappingTable" alias="xfLogicalIdx" type="string"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.2.1.2" instance="xfLIMappingTable" alias="xfifIndex" type="string"/>
@@ -111,7 +101,6 @@ node[18].xfLIMappingTable[12.2129682945]
    </group>
 
    <group name="ericsson_6693" ifType="all">
-	   <!-- <mibObj oid="" instance="" alias="" type=""/> -->
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.1." instance="ifIndex" alias="xfSelctdMinOutPwr" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.2." instance="ifIndex" alias="xfSelctdMaxOutPwr" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.3." instance="ifIndex" alias="xfCurOutptPwr" type="gauge"/>
@@ -137,25 +126,25 @@ node[18].xfLIMappingTable[12.2129682945]
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.34" instance="ifIndex" alias="xfTaps" type="gauge"/>       <!-- enum -->
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.35" instance="ifIndex" alias="xfCurInptPwrSdcMn" type="gauge"/>  <!-- enum -->
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.36" instance="ifIndex" alias="xfCurInptPwrSdcDv" type="gauge"/>  <!-- enum -->
-      <property instance="ifIndex" alias="MaxOutptPwrTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+      <property instance="if" alias="MaxOutptPwrTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
          <parameter key="enum-attribute" value="xfMaxOutptPwrPssbl"/>
 	 <parameter key="1" value="other(1)"/>
 	 <parameter key="2" value="possible(2)"/>
 	 <parameter key="3" value="notPossible(3)"/>
       </property>
-      <property instance="ifIndex" alias="xfCurInptPwrSdcMnT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+      <property instance="if" alias="xfCurInptPwrSdcMnT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
          <parameter key="enum-attribute" value="xfCurInptPwrSdcMn"/>
 	 <parameter key="1" value="other(1)"/>
 	 <parameter key="2" value="standardPower(2)"/>
 	 <parameter key="3" value="highPower(3)"/>
       </property>
-      <property instance="ifIndex" alias="xfCurInptPwrSdcDvT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+      <property instance="if" alias="xfCurInptPwrSdcDvT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
          <parameter key="enum-attribute" value="xfCurInptPwrSdcDv"/>
 	 <parameter key="1" value="other(1)"/>
 	 <parameter key="2" value="standardPower(2)"/>
 	 <parameter key="3" value="highPower(3)"/>
       </property>
-      <property instance="ifIndex" alias="xfTapsTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+      <property instance="if" alias="xfTapsTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
          <parameter key="enum-attribute" value="xfTaps"/>
 	 <parameter key="1" value="other(1)"/>
 	 <parameter key="2" value="enabled(2)"/>
