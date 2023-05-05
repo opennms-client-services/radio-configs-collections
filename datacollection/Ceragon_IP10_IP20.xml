@@ -274,6 +274,7 @@
       <includeGroup>ceragon_ip10_ip20_member_abc</includeGroup>
       <includeGroup>ceragon_ip10_ip20_slot_config</includeGroup>
       <includeGroup>ceragon_ip10_ip20_MRMC</includeGroup>
+      <includeGroup>ceragon_ip20_rmonbytes</includeGroup>
       <includeGroup>genericNodeAttributes</includeGroup>
     </collect>
   </systemDef>
