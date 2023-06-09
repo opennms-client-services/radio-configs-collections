@@ -17,6 +17,84 @@
      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
    </resourceType>
 
+   <group name="ericsson_6352" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.1" instance="ifIndex"  alias="actualInptPwr" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.2" instance="ifIndex"  alias="actualOutptPwr" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.3" instance="ifIndex"  alias="actualRxAcm" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.4" instance="ifIndex"  alias="actualTxAcm" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.5" instance="ifIndex"  alias="ctDistName" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.6" instance="ifIndex"  alias="linkDescr" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.7" instance="ifIndex"  alias="carrierId" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.8" instance="ifIndex"  alias="ctStat" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.9" instance="ifIndex"  alias="frameId" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.10" instance="ifIndex" alias="txFreq" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.11" instance="ifIndex" alias="minTxFreq" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.12" instance="ifIndex" alias="maxTxFreq" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.13" instance="ifIndex" alias="rxFreq" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.14" instance="ifIndex" alias="minRxFreq" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.15" instance="ifIndex" alias="maxRxFreq" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.16" instance="ifIndex" alias="freqStepSize" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.17" instance="ifIndex" alias="duplexDist" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.18" instance="ifIndex" alias="duplexType" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.19" instance="ifIndex" alias="duplexConfig" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.20" instance="ifIndex" alias="autoFreqSelctn" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.21" instance="ifIndex" alias="autoFreqSelctdChnl" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.22" instance="ifIndex" alias="autoFreqSelctnStat" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.23" instance="ifIndex" alias="channelSpacing" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.24" instance="ifIndex" alias="polarization" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.25" instance="ifIndex" alias="txOperStat" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.26" instance="ifIndex" alias="txAdminStat" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.27" instance="ifIndex" alias="slctdOutptPwrType" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.28" instance="ifIndex" alias="availOutptPwrType" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.29" instance="ifIndex" alias="slctdMinOutptPwr" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.30" instance="ifIndex" alias="slctdMaxOutptPwr" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.31" instance="ifIndex" alias="availMinOutptPwr" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.32" instance="ifIndex" alias="availMaxOutptPwr" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.33" instance="ifIndex" alias="refSec" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.34" instance="ifIndex" alias="tgtInptPwrFarEnd" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.35" instance="ifIndex" alias="berAlarmThresh" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.36" instance="ifIndex" alias="inptPwrAlarmThresh" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.37" instance="ifIndex" alias="plandAlnmntInptPwr" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.38" instance="ifIndex" alias="atpcFalbck" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.39" instance="ifIndex" alias="atpcFalbckTimer" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.40" instance="ifIndex" alias="atpcFalbckOutptPwr" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.41" instance="ifIndex" alias="xpicStat" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.42" instance="ifIndex" alias="mimoStat" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.43" instance="ifIndex" alias="actualSnir" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.44" instance="ifIndex" alias="actualXpi" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.45" instance="ifIndex" alias="actualSi" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.46" instance="ifIndex" alias="actualTxCapcty" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.47" instance="ifIndex" alias="licensedCapcty" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.48" instance="ifIndex" alias="availMinCapcty" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.49" instance="ifIndex" alias="availMaxCapcty" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.50" instance="ifIndex" alias="slctdMinCapcty" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.51" instance="ifIndex" alias="slctdMaxCapcty" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.52" instance="ifIndex" alias="wantdLicensedCapcty" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.53" instance="ifIndex" alias="availMinAcm" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.54" instance="ifIndex" alias="availMaxAcm" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.55" instance="ifIndex" alias="slctdMinAcm" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.56" instance="ifIndex" alias="slctdMaxAcm" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.57" instance="ifIndex" alias="actualRxAcmTC" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.58" instance="ifIndex" alias="actualTxAcmTC" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.59" instance="ifIndex" alias="alignmentMode" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.60" instance="ifIndex" alias="rfLoop" type="gauge"/>
+      <property instance="if" alias="chanSpcTxt" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="channelSpacing"/>
+         <parameter key="0" value="chspUnknown(0)"/>
+         <parameter key="1" value="chsp7MHz(1)"/>
+         <parameter key="2" value="chsp14MHz(2)"/>
+         <parameter key="3" value="chsp20MHz(3)"/>
+         <parameter key="4" value="chsp28MHz(4)"/>
+         <parameter key="5" value="chsp30MHz(5)"/>
+         <parameter key="6" value="chsp40MHz(6)"/>
+         <parameter key="7" value="chsp50MHz(7)"/>
+         <parameter key="8" value="chsp56MHz(8)"/>
+         <parameter key="9" value="chsp10MHz(9)"/>
+         <parameter key="10" value="chsp3500kHz(10)"/>
+         <parameter key="11" value="chsp60MHz(11)"/>
+      </property>
+   </group>
+
    <group name="ericsson_6693_carrierterm" ifType="all">
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.1" instance="xfLogicalIndex" alias="xfDistName" type="string"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.2" instance="xfLogicalIndex" alias="xfCTLabel" type="string"/>
@@ -107,10 +185,7 @@
    <systemDef name="ericsson_6352">
       <sysoid>.1.3.6.1.4.1.193.223.2.1</sysoid>
       <collect>
-         <includeGroup>ericsson_6693_maptable</includeGroup>
-         <includeGroup>ericsson_6693_carrierterm</includeGroup>
-         <includeGroup>ericsson_6693_rlt_mib</includeGroup>
-         <includeGroup>ericsson_6693_ptp_radio</includeGroup>
+	 <includeGroup>ericsson_6352</includeGroup>
          <includeGroup>er-X-interfaces</includeGroup>
       </collect>
    </systemDef>
