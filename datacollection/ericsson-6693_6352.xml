@@ -1,14 +1,14 @@
 <datacollection-group xmlns="http://xmlns.opennms.org/xsd/config/datacollection" name="ericsson">
 
-   <resourceType name="xfLogicalIndex" label="Carrier Termination" resourceLabel="Logical Index: ${index} Name: ${xfDistName}">
+   <resourceType name="xfLogicalIndex" label="Carrier Termination" resourceLabel="Name: ${xfDistName} Logical Index: ${index} ">
      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
    </resourceType>
-   <resourceType name="xfRLTLogicalIndex" label="Radio Link Terminal" resourceLabel="Logical Index: ${index} Name: ${RLTDistName}">
+   <resourceType name="xfRLTLogicalIndex" label="Radio Link Terminal" resourceLabel="Name: ${RLTDistName} Logical Index: ${index}">
      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
    </resourceType>
-   <resourceType name="xfLIMappingTable" label="Logical Index Mapping Table" resourceLabel="LogicalID ${xfLogicalIdx} == ifIndex ${xfifIndex} == ${xfifName}">
+   <resourceType name="xfLIMappingTable" label="Logical Index Mapping Table" resourceLabel="${xfifName} == LogicalID ${xfLogicalIdx} == ifIndex ${xfifIndex}">
      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
    </resourceType>
@@ -107,7 +107,7 @@
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.18" instance="xfLogicalIndex" alias="xfCTXPI" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.23" instance="xfLogicalIndex" alias="xfCTActualRxACM" type="gauge"/>
       <property instance="xfLogicalIndex" alias="xfLogicalIdx" class-name="org.opennms.netmgt.collectd.IndexSplitPropertyExtender"> 
-         <parameter key="index-pattern" value="^.+\.(\d+)$" /> 
+         <parameter key="index-pattern" value="^(\d+)$" /> 
       </property>
       <property instance="xfLogicalIndex" alias="xfCTActualRxACMT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
          <parameter key="enum-attribute" value="xfCTActualRxACM"/>
