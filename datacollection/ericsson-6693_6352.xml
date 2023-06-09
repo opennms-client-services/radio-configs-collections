@@ -1,314 +1,36 @@
 <datacollection-group xmlns="http://xmlns.opennms.org/xsd/config/datacollection" name="ericsson">
 
-   <resourceType name="xfLIMappingTable" label="xfLIMappingTable ${index}">
+   <resourceType name="xfLogicalIndex" label="Carrier Termination" resourceLabel="Logical Index: ${index} Name: ${xfDistName}">
      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
    </resourceType>
-
-   <resourceType name="xfLogicalIndex" label="Interface Logical Index: ${index} Name: ${xfCTDistName}">
+   <resourceType name="xfRLTLogicalIndex" label="Radio Link Terminal" resourceLabel="Logical Index: ${index} Name: ${RLTDistName}">
      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
    </resourceType>
-
-   <group name="genericNodeAttributes" ifType="ignore">
-      <mibObj oid=".1.3.6.1.2.1.1.5" instance="0" alias="siteSysName" type="string"/>
-      <mibObj oid=".1.3.6.1.2.1.1.6" instance="0" alias="siteSysLocation" type="string"/>
-   </group>
-   <group name="hostNameAndIP" ifType="ignore">
-      <mibObj oid=".1.3.6.1.4.1.193.81.2.8.2.2" instance="0" alias="xfDcnHostName" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.2.8.2.3" instance="0" alias="xfDcnHostAddr" type="string"/>
-   </group>
-   <group name="mib2-interfaces" ifType="all">
-      <mibObj oid=".1.3.6.1.2.1.2.2.1.1" instance="ifIndex" alias="mib2-ifIndex" type="string"/>
-      <mibObj oid=".1.3.6.1.2.1.2.2.1.2" instance="ifIndex" alias="mib2-ifDescr" type="string"/>
-   </group>
-
-   <group name="ericsson_6352" ifType="all">
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.1" instance="ifIndex"  alias="actualInptPwr" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.2" instance="ifIndex"  alias="actualOutptPwr" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.3" instance="ifIndex"  alias="actualRxAcm" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.4" instance="ifIndex"  alias="actualTxAcm" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.5" instance="ifIndex"  alias="ctDistName" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.6" instance="ifIndex"  alias="linkDescr" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.7" instance="ifIndex"  alias="carrierId" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.8" instance="ifIndex"  alias="ctStat" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.9" instance="ifIndex"  alias="frameId" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.10" instance="ifIndex" alias="txFreq" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.11" instance="ifIndex" alias="minTxFreq" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.12" instance="ifIndex" alias="maxTxFreq" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.13" instance="ifIndex" alias="rxFreq" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.14" instance="ifIndex" alias="minRxFreq" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.15" instance="ifIndex" alias="maxRxFreq" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.16" instance="ifIndex" alias="freqStepSize" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.17" instance="ifIndex" alias="duplexDist" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.18" instance="ifIndex" alias="duplexType" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.19" instance="ifIndex" alias="duplexConfig" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.20" instance="ifIndex" alias="autoFreqSelctn" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.21" instance="ifIndex" alias="autoFreqSelctdChnl" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.22" instance="ifIndex" alias="autoFreqSelctnStat" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.23" instance="ifIndex" alias="channelSpacing" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.24" instance="ifIndex" alias="polarization" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.25" instance="ifIndex" alias="txOperStat" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.26" instance="ifIndex" alias="txAdminStat" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.27" instance="ifIndex" alias="slctdOutptPwrType" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.28" instance="ifIndex" alias="availOutptPwrType" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.29" instance="ifIndex" alias="slctdMinOutptPwr" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.30" instance="ifIndex" alias="slctdMaxOutptPwr" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.31" instance="ifIndex" alias="availMinOutptPwr" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.32" instance="ifIndex" alias="availMaxOutptPwr" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.33" instance="ifIndex" alias="refSec" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.34" instance="ifIndex" alias="tgtInptPwrFarEnd" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.35" instance="ifIndex" alias="berAlarmThresh" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.36" instance="ifIndex" alias="inptPwrAlarmThresh" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.37" instance="ifIndex" alias="plandAlnmntInptPwr" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.38" instance="ifIndex" alias="atpcFalbck" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.39" instance="ifIndex" alias="atpcFalbckTimer" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.40" instance="ifIndex" alias="atpcFalbckOutptPwr" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.41" instance="ifIndex" alias="xpicStat" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.42" instance="ifIndex" alias="mimoStat" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.43" instance="ifIndex" alias="actualSnir" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.44" instance="ifIndex" alias="actualXpi" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.45" instance="ifIndex" alias="actualSi" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.46" instance="ifIndex" alias="actualTxCapcty" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.47" instance="ifIndex" alias="licensedCapcty" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.48" instance="ifIndex" alias="availMinCapcty" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.49" instance="ifIndex" alias="availMaxCapcty" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.50" instance="ifIndex" alias="slctdMinCapcty" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.51" instance="ifIndex" alias="slctdMaxCapcty" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.52" instance="ifIndex" alias="wantdLicensedCapcty" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.53" instance="ifIndex" alias="availMinAcm" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.54" instance="ifIndex" alias="availMaxAcm" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.55" instance="ifIndex" alias="slctdMinAcm" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.56" instance="ifIndex" alias="slctdMaxAcm" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.57" instance="ifIndex" alias="actualRxAcmTC" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.58" instance="ifIndex" alias="actualTxAcmTC" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.59" instance="ifIndex" alias="alignmentMode" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.60" instance="ifIndex" alias="rfLoop" type="gauge"/>
-      <property instance="if" alias="chanSpcTxt" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
-         <parameter key="enum-attribute" value="channelSpacing"/>
-         <parameter key="0" value="chspUnknown(0)"/>
-         <parameter key="1" value="chsp7MHz(1)"/>
-         <parameter key="2" value="chsp14MHz(2)"/>
-         <parameter key="3" value="chsp20MHz(3)"/>
-         <parameter key="4" value="chsp28MHz(4)"/>
-         <parameter key="5" value="chsp30MHz(5)"/>
-         <parameter key="6" value="chsp40MHz(6)"/>
-         <parameter key="7" value="chsp50MHz(7)"/>
-         <parameter key="8" value="chsp56MHz(8)"/>
-         <parameter key="9" value="chsp10MHz(9)"/>
-         <parameter key="10" value="chsp3500kHz(10)"/>
-         <parameter key="11" value="chsp60MHz(11)"/>
-      </property>
-   </group>
-
-   <group name="ericsson_6693_maptable" ifType="all">
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.2.1.1" instance="xfLIMappingTable" alias="xfLogicalIdx" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.2.1.2" instance="xfLIMappingTable" alias="xfifIndex" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.2.1.3" instance="xfLIMappingTable" alias="xfifName" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.2.1.4" instance="xfLIMappingTable" alias="xfifDescr" type="string"/>
-   </group>
-
-   <group name="ericsson_6693" ifType="all">
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.1." instance="ifIndex" alias="xfSelctdMinOutPwr" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.2." instance="ifIndex" alias="xfSelctdMaxOutPwr" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.3." instance="ifIndex" alias="xfCurOutptPwr" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.4." instance="ifIndex" alias="xfMinOutptPwr" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.5." instance="ifIndex" alias="xfMaxOutptPwr" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.6." instance="ifIndex" alias="xfAtpcTgtInptPwrFE" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.7." instance="ifIndex" alias="xfCurInptPwr" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.14" instance="ifIndex" alias="xfOutptPwr4QAM" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.15" instance="ifIndex" alias="xfOutptPwr16QAM" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.16" instance="ifIndex" alias="xfOutptPwr32QAM" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.17" instance="ifIndex" alias="xfOutptPwr64QAM" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.18" instance="ifIndex" alias="xfOutptPwr128QAM" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.19" instance="ifIndex" alias="xfOutptPwr256QAM" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.20" instance="ifIndex" alias="xfOutptPwr512QAM" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.21" instance="ifIndex" alias="xfOutptPwr1024QAM" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.22" instance="ifIndex" alias="xfOutptPwr2048QAM" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.23" instance="ifIndex" alias="xfOutptPwr4096QAM" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.24" instance="ifIndex" alias="xfMaxOutptPwrNoLim" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.25" instance="ifIndex" alias="xfMaxOutptPwrPssbl" type="gauge"/>  <!-- enum -->
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.26" instance="ifIndex" alias="xfMeanInptPwr1m" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.32" instance="ifIndex" alias="xfAvailOutptPwr" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.33" instance="ifIndex" alias="xfSelctdOutptPwr" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.34" instance="ifIndex" alias="xfTaps" type="gauge"/>       <!-- enum -->
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.35" instance="ifIndex" alias="xfCurInptPwrSdcMn" type="gauge"/>  <!-- enum -->
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.36" instance="ifIndex" alias="xfCurInptPwrSdcDv" type="gauge"/>  <!-- enum -->
-      <property instance="if" alias="MaxOutptPwrTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
-         <parameter key="enum-attribute" value="xfMaxOutptPwrPssbl"/>
-	 <parameter key="1" value="other(1)"/>
-	 <parameter key="2" value="possible(2)"/>
-	 <parameter key="3" value="notPossible(3)"/>
-      </property>
-      <property instance="if" alias="xfCurInptPwrSdcMnT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
-         <parameter key="enum-attribute" value="xfCurInptPwrSdcMn"/>
-	 <parameter key="1" value="other(1)"/>
-	 <parameter key="2" value="standardPower(2)"/>
-	 <parameter key="3" value="highPower(3)"/>
-      </property>
-      <property instance="if" alias="xfCurInptPwrSdcDvT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
-         <parameter key="enum-attribute" value="xfCurInptPwrSdcDv"/>
-	 <parameter key="1" value="other(1)"/>
-	 <parameter key="2" value="standardPower(2)"/>
-	 <parameter key="3" value="highPower(3)"/>
-      </property>
-      <property instance="if" alias="xfTapsTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
-         <parameter key="enum-attribute" value="xfTaps"/>
-	 <parameter key="1" value="other(1)"/>
-	 <parameter key="2" value="enabled(2)"/>
-	 <parameter key="3" value="disabled(3)"/>
-	 <parameter key="4" value="notAvailable(4)"/>
-      </property>
-   </group>
+   <resourceType name="xfLIMappingTable" label="Logical Index Mapping Table" resourceLabel="LogicalID ${xfLogicalIdx} == ifIndex ${xfifIndex} == ${xfifName}">
+     <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+     <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="ericsson_ifIndex" label="Ericsson Interfaces" resourceLabel="${er_ifName} (Index: ${index})">
+     <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+     <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
 
    <group name="ericsson_6693_carrierterm" ifType="all">
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.1" instance="xfLogicalIndex" alias="xfCTDistName" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.1" instance="xfLogicalIndex" alias="xfDistName" type="string"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.2" instance="xfLogicalIndex" alias="xfCTLabel" type="string"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.3" instance="xfLogicalIndex" alias="xfCTOperStatus" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.4" instance="xfLogicalIndex" alias="xfCTRadioFrameId" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.5" instance="xfLogicalIndex" alias="xfCTPreamble" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.6" instance="xfLogicalIndex" alias="xfCTSelectedMinACM" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.7" instance="xfLogicalIndex" alias="xfCTActualACM" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.8" instance="xfLogicalIndex" alias="xfCTSelectedMaxACM" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.10" instance="xfLogicalIndex" alias="xfCTReferenceSEC" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.11" instance="xfLogicalIndex" alias="xfCTWantedLicCap" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.12" instance="xfLogicalIndex" alias="xfCTActualLicCap" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.13" instance="xfLogicalIndex" alias="xfCTActualCap" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.14" instance="xfLogicalIndex" alias="xfCTPolarization" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.15" instance="xfLogicalIndex" alias="xfCTXPICOperStat" type="gauge"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.16" instance="xfLogicalIndex" alias="xfCTMIMOOperStat" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.7" instance="xfLogicalIndex" alias="xfCTActualACM" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.17" instance="xfLogicalIndex" alias="xfCTSNI" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.18" instance="xfLogicalIndex" alias="xfCTXPI" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.3.1.23" instance="xfLogicalIndex" alias="xfCTActualRxACM" type="gauge"/>
-      <property instance="xfLogicalIndex" alias="xfCTPolariztnTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
-         <parameter key="enum-attribute" value="xfCTPolarization"/>
-         <parameter key="1" value="notSpecified(1)"/>
-         <parameter key="2" value="preambleA(2)"/>
-         <parameter key="3" value="preambleB(3)"/>
-         <parameter key="4" value="preambleC(4)"/>
-         <parameter key="5" value="preambleD(5)"/>
+      <property instance="xfLogicalIndex" alias="xfLogicalIdx" class-name="org.opennms.netmgt.collectd.IndexSplitPropertyExtender"> 
+         <parameter key="index-pattern" value="^.+\.(\d+)$" /> 
       </property>
-      <property instance="xfLogicalIndex" alias="xfCTPolariztnTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
-         <parameter key="enum-attribute" value="xfCTPolarization"/>
-         <parameter key="1" value="notSpecified(1)"/>
-         <parameter key="2" value="horizontal(2)"/>
-         <parameter key="3" value="vertical(3)"/>
-      </property>
-      <property instance="xfLogicalIndex" alias="xfCTXPICOperStatT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
-         <parameter key="enum-attribute" value="xfCTXPICOperStat"/>
-	 <parameter key="1" value="other(1)"/>
-	 <parameter key="2" value="locked(2)"/>
-	 <parameter key="3" value="unlocked(3)"/>
-	 <parameter key="4" value="mute(4)"/>
-	 <parameter key="5" value="notApplicable(5)"/>
-      </property>
-      <property instance="xfLogicalIndex" alias="xfCTMIMOOperStatT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
-         <parameter key="enum-attribute" value="xfCTMIMOOperStat"/>
-	 <parameter key="1" value="other(1)"/>
-	 <parameter key="2" value="locked(2)"/>
-	 <parameter key="3" value="unlocked(3)"/>
-	 <parameter key="4" value="mute(4)"/>
-	 <parameter key="5" value="notApplicable(5)"/>
-      </property>
-      <property instance="xfLogicalIndex" alias="xfCTSelMinACMTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
-         <parameter key="enum-attribute" value="xfCTSelectedMinACM"/>
-	 <parameter key="1" value="acm4QAMStrong(1)"/>
-         <parameter key="2" value="acm4QAMStd(2)"/>
-         <parameter key="3" value="acm4QAMLight(3)"/>
-         <parameter key="4" value="acm16QAMStrong(4)"/>
-         <parameter key="5" value="acm16QAMStd(5)"/>
-         <parameter key="6" value="acm16QAMLight(6)"/>
-         <parameter key="7" value="acm32QAMStrong(7)"/>
-         <parameter key="8" value="acm32QAMStd(8)"/>
-         <parameter key="9" value="acm32QAMLight(9)"/>
-         <parameter key="10" value="acm64QAMStrong(10)"/>
-         <parameter key="11" value="acm64QAMStd(11)"/>
-         <parameter key="12" value="acm64QAMLight(12)"/>
-         <parameter key="13" value="acm128QAMStrong(13)"/>
-         <parameter key="14" value="acm128QAMStd(14)"/>
-         <parameter key="15" value="acm128QAMLight(15)"/>
-         <parameter key="16" value="acm256QAMStrong(16)"/>
-         <parameter key="17" value="acm256QAMStd(17)"/>
-         <parameter key="18" value="acm256QAMLight(18)"/>
-         <parameter key="19" value="acm512QAMStrong(19)"/>
-         <parameter key="20" value="acm512QAMStd(20)"/>
-         <parameter key="21" value="acm512QAMLight(21)"/>
-         <parameter key="22" value="acm1024QAMStrong(22)"/>
-         <parameter key="23" value="acm1024QAMStd(23)"/>
-         <parameter key="24" value="acm1024QAMLight(24)"/>
-         <parameter key="25" value="acm2048QAMStrong(25)"/>
-         <parameter key="26" value="acm2048QAMStd(26)"/>
-         <parameter key="27" value="acm2048QAMLight(27)"/>
-         <parameter key="28" value="acm4096QAMStrong(28)"/>
-         <parameter key="29" value="acm4096QAMStd(29)"/>
-         <parameter key="30" value="acm4096QAMLight(30)"/>
-      </property>	 
-      <property instance="xfLogicalIndex" alias="xfCTActualACMTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
-         <parameter key="enum-attribute" value="xfCTActualACM"/>
-	 <parameter key="1" value="acm4QAMStrong(1)"/>
-         <parameter key="2" value="acm4QAMStd(2)"/>
-         <parameter key="3" value="acm4QAMLight(3)"/>
-         <parameter key="4" value="acm16QAMStrong(4)"/>
-         <parameter key="5" value="acm16QAMStd(5)"/>
-         <parameter key="6" value="acm16QAMLight(6)"/>
-         <parameter key="7" value="acm32QAMStrong(7)"/>
-         <parameter key="8" value="acm32QAMStd(8)"/>
-         <parameter key="9" value="acm32QAMLight(9)"/>
-         <parameter key="10" value="acm64QAMStrong(10)"/>
-         <parameter key="11" value="acm64QAMStd(11)"/>
-         <parameter key="12" value="acm64QAMLight(12)"/>
-         <parameter key="13" value="acm128QAMStrong(13)"/>
-         <parameter key="14" value="acm128QAMStd(14)"/>
-         <parameter key="15" value="acm128QAMLight(15)"/>
-         <parameter key="16" value="acm256QAMStrong(16)"/>
-         <parameter key="17" value="acm256QAMStd(17)"/>
-         <parameter key="18" value="acm256QAMLight(18)"/>
-         <parameter key="19" value="acm512QAMStrong(19)"/>
-         <parameter key="20" value="acm512QAMStd(20)"/>
-         <parameter key="21" value="acm512QAMLight(21)"/>
-         <parameter key="22" value="acm1024QAMStrong(22)"/>
-         <parameter key="23" value="acm1024QAMStd(23)"/>
-         <parameter key="24" value="acm1024QAMLight(24)"/>
-         <parameter key="25" value="acm2048QAMStrong(25)"/>
-         <parameter key="26" value="acm2048QAMStd(26)"/>
-         <parameter key="27" value="acm2048QAMLight(27)"/>
-         <parameter key="28" value="acm4096QAMStrong(28)"/>
-         <parameter key="29" value="acm4096QAMStd(29)"/>
-         <parameter key="30" value="acm4096QAMLight(30)"/>
-      </property>	 
-      <property instance="xfLogicalIndex" alias="xfCTSelMaxACMTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
-         <parameter key="enum-attribute" value="xfCTSelectedMaxACM"/>
-	 <parameter key="1" value="acm4QAMStrong(1)"/>
-         <parameter key="2" value="acm4QAMStd(2)"/>
-         <parameter key="3" value="acm4QAMLight(3)"/>
-         <parameter key="4" value="acm16QAMStrong(4)"/>
-         <parameter key="5" value="acm16QAMStd(5)"/>
-         <parameter key="6" value="acm16QAMLight(6)"/>
-         <parameter key="7" value="acm32QAMStrong(7)"/>
-         <parameter key="8" value="acm32QAMStd(8)"/>
-         <parameter key="9" value="acm32QAMLight(9)"/>
-         <parameter key="10" value="acm64QAMStrong(10)"/>
-         <parameter key="11" value="acm64QAMStd(11)"/>
-         <parameter key="12" value="acm64QAMLight(12)"/>
-         <parameter key="13" value="acm128QAMStrong(13)"/>
-         <parameter key="14" value="acm128QAMStd(14)"/>
-         <parameter key="15" value="acm128QAMLight(15)"/>
-         <parameter key="16" value="acm256QAMStrong(16)"/>
-         <parameter key="17" value="acm256QAMStd(17)"/>
-         <parameter key="18" value="acm256QAMLight(18)"/>
-         <parameter key="19" value="acm512QAMStrong(19)"/>
-         <parameter key="20" value="acm512QAMStd(20)"/>
-         <parameter key="21" value="acm512QAMLight(21)"/>
-         <parameter key="22" value="acm1024QAMStrong(22)"/>
-         <parameter key="23" value="acm1024QAMStd(23)"/>
-         <parameter key="24" value="acm1024QAMLight(24)"/>
-         <parameter key="25" value="acm2048QAMStrong(25)"/>
-         <parameter key="26" value="acm2048QAMStd(26)"/>
-         <parameter key="27" value="acm2048QAMLight(27)"/>
-         <parameter key="28" value="acm4096QAMStrong(28)"/>
-         <parameter key="29" value="acm4096QAMStd(29)"/>
-         <parameter key="30" value="acm4096QAMLight(30)"/>
-      </property>	 
       <property instance="xfLogicalIndex" alias="xfCTActualRxACMT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
          <parameter key="enum-attribute" value="xfCTActualRxACM"/>
 	 <parameter key="1" value="acm4QAMStrong(1)"/>
@@ -341,27 +63,65 @@
          <parameter key="28" value="acm4096QAMStrong(28)"/>
          <parameter key="29" value="acm4096QAMStd(29)"/>
          <parameter key="30" value="acm4096QAMLight(30)"/>
+      </property>
+   </group>
+   <group name="ericsson_6693_ptp_radio" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.2.1.1" instance="ericsson_ifIndex" alias="xfRFBaseTxFreq" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.2.1.2" instance="ericsson_ifIndex" alias="xfRFBaseRxFreq" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.2.1.3" instance="ericsson_ifIndex" alias="xfRFFreqStep" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.2.1.6" instance="ericsson_ifIndex" alias="xfRFFreqStepNum" type="string"/>
+   </group>
+   <group name="ericsson_6693_maptable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.2.1.1" instance="xfLIMappingTable" alias="xfLogicalIdx" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.2.1.2" instance="xfLIMappingTable" alias="xfifIndex" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.2.1.3" instance="xfLIMappingTable" alias="xfifName" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.2.1.4" instance="xfLIMappingTable" alias="xfifDescr" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.2.1.1" instance="xfLIMappingTable" alias="xflinum" type="gauge"/>
+   </group>
+   <group name="ericsson_6693_rlt_mib" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.6.1.1" instance="xfRLTLogicalIndex" alias="xfLogicalIdx" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.6.1.2" instance="xfRLTLogicalIndex" alias="RLTDistName" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.6.1.3" instance="xfRLTLogicalIndex" alias="RLTIpAddr" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.6.1.5" instance="xfRLTLogicalIndex" alias="RLTNearName" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.6.1.6" instance="xfRLTLogicalIndex" alias="RLTNearType" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.6.1.7" instance="xfRLTLogicalIndex" alias="RLTid" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.6.1.8" instance="xfRLTLogicalIndex" alias="RLTFarEndid" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.6.1.10" instance="xfRLTLogicalIndex" alias="RLTStatus" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.6.1.12" instance="xfRLTLogicalIndex" alias="RLTTXTotCpcty" type="string"/>
+      <property instance="xfLogicalIndex" alias="RLTStatusTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
+         <parameter key="enum-attribute" value="RLTStatus"/>
+         <parameter key="1" value="other(1)"/>
+         <parameter key="2" value="down(2)"/>
+         <parameter key="3" value="up(3)"/>
+         <parameter key="4" value="degraded(4)"/>
+         <parameter key="5" value="resourceUnavailable(5)"/>
       </property>	 
+   </group>
+
+   <!--- Why do you make me do these things? -->
+   <group name="er-X-interfaces" ifType="all">
+      <mibObj oid=".1.3.6.1.2.1.31.1.1.1.1" instance="ericsson_ifIndex" alias="er_ifName" type="string"/>
+      <mibObj oid=".1.3.6.1.2.1.31.1.1.1.15" instance="ericsson_ifIndex" alias="er_ifHighSpeed" type="string"/>
    </group>
 
    <systemDef name="ericsson_6352">
       <sysoid>.1.3.6.1.4.1.193.223.2.1</sysoid>
       <collect>
-         <includeGroup>ericsson_6352</includeGroup>
-         <includeGroup>genericNodeAttributes</includeGroup>
-         <includeGroup>hostNameAndIP</includeGroup>
-         <includeGroup>mib2-interfaces</includeGroup>
+         <includeGroup>ericsson_6693_maptable</includeGroup>
+         <includeGroup>ericsson_6693_carrierterm</includeGroup>
+         <includeGroup>ericsson_6693_rlt_mib</includeGroup>
+         <includeGroup>ericsson_6693_ptp_radio</includeGroup>
+         <includeGroup>er-X-interfaces</includeGroup>
       </collect>
    </systemDef>
    <systemDef name="ericsson_6693">
       <sysoid>.1.3.6.1.4.1.193.81.1.1.3</sysoid>
       <collect>
-         <includeGroup>ericsson_6693</includeGroup>
          <includeGroup>ericsson_6693_maptable</includeGroup>
          <includeGroup>ericsson_6693_carrierterm</includeGroup>
-         <includeGroup>genericNodeAttributes</includeGroup>
-         <includeGroup>hostNameAndIP</includeGroup>
-         <includeGroup>mib2-interfaces</includeGroup>
+         <includeGroup>ericsson_6693_rlt_mib</includeGroup>
+         <includeGroup>ericsson_6693_ptp_radio</includeGroup>
+         <includeGroup>er-X-interfaces</includeGroup>
       </collect>
    </systemDef>
 </datacollection-group>
