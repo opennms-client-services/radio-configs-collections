@@ -1,0 +1,62 @@
+<foreign-source xmlns="http://xmlns.opennms.org/xsd/config/foreign-source" name="default" date-stamp="2021-09-22T16:00:11.558-07:00">
+   <scan-interval>1d</scan-interval>
+   <detectors>
+      <detector name="SNMP" class="org.opennms.netmgt.provision.detector.snmp.SnmpDetector"/>
+   </detectors>
+   <policies>
+      <policy name="no 192's" class="org.opennms.netmgt.provision.persist.policies.MatchingIpInterfacePolicy">
+         <parameter key="action" value="DO_NOT_PERSIST"/>
+         <parameter key="matchBehavior" value="ALL_PARAMETERS"/>
+         <parameter key="ipAddress" value="~192\..*"/>
+      </policy>
+      <policy name="no 0.0.0.0" class="org.opennms.netmgt.provision.persist.policies.MatchingIpInterfacePolicy">
+         <parameter key="action" value="DO_NOT_PERSIST"/>
+         <parameter key="ipAddress" value="0.0.0.0"/>
+         <parameter key="matchBehavior" value="ALL_PARAMETERS"/>
+      </policy>
+      <policy name="IP10 Policy" class="org.opennms.netmgt.provision.persist.policies.ScriptPolicy">
+         <parameter key="script" value="/opt/opennms/etc/script-policies/IP10-unfucker.groovy"/>
+         <parameter key="matchBehavior" value="ALL_PARAMETERS"/>
+      </policy>
+      <policy name="No_tdm" class="org.opennms.netmgt.provision.persist.policies.MatchingSnmpInterfacePolicy">
+         <parameter key="action" value="DO_NOT_PERSIST"/>
+         <parameter key="ifName" value="~^tdm.*$"/>
+         <parameter key="matchBehavior" value="ALL_PARAMETERS"/>
+         <parameter key="ifType" value="18"/>
+      </policy>
+      <policy name="no_oper_down" class="org.opennms.netmgt.provision.persist.policies.MatchingSnmpInterfacePolicy">
+         <parameter key="ifAdminStatus" value="2"/>
+         <parameter key="matchBehavior" value="ANY_PARAMETER"/>
+         <parameter key="action" value="DISABLE_COLLECTION"/>
+         <parameter key="ifOperStatus" value="2"/>
+      </policy>
+      <policy name="no_sync_mgmt" class="org.opennms.netmgt.provision.persist.policies.MatchingSnmpInterfacePolicy">
+         <parameter key="ifDescr" value="~^.*SYNC$"/>
+         <parameter key="action" value="DO_NOT_PERSIST"/>
+         <parameter key="ifName" value="~^(Sync|Management).*"/>
+         <parameter key="matchBehavior" value="ANY_PARAMETER"/>
+         <parameter key="ifAlias" value="~^.*_MGMT"/>
+      </policy>
+      <policy name="no loopback" class="org.opennms.netmgt.provision.persist.policies.MatchingSnmpInterfacePolicy">
+         <parameter key="ifName" value="~^[LlOo].*"/>
+         <parameter key="action" value="DO_NOT_PERSIST"/>
+         <parameter key="ifType" value="24"/>
+         <parameter key="matchBehavior" value="ALL_PARAMETERS"/>
+      </policy>
+      <policy name="no ds1" class="org.opennms.netmgt.provision.persist.policies.MatchingSnmpInterfacePolicy">
+         <parameter key="action" value="DO_NOT_PERSIST"/>
+         <parameter key="matchBehavior" value="ALL_PARAMETERS"/>
+         <parameter key="ifType" value="18"/>
+      </policy>
+      <policy name="no usb interfaces" class="org.opennms.netmgt.provision.persist.policies.MatchingSnmpInterfacePolicy">
+         <parameter key="action" value="DO_NOT_PERSIST"/>
+         <parameter key="matchBehavior" value="ALL_PARAMETERS"/>
+         <parameter key="ifType" value="160"/>
+      </policy>
+      <policy name="dont persist admin down interfaces" class="org.opennms.netmgt.provision.persist.policies.MatchingSnmpInterfacePolicy">
+         <parameter key="ifAdminStatus" value="2"/>
+         <parameter key="action" value="DO_NOT_PERSIST"/>
+         <parameter key="matchBehavior" value="ALL_PARAMETERS"/>
+      </policy>
+   </policies>
+</foreign-source>
