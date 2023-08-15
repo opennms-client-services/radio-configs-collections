@@ -8,17 +8,12 @@
      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
    </resourceType>
-   <resourceType name="xfLIMappingTable" label="Logical Index Mapping Table" resourceLabel="${xfifName} == LogicalID ${xfLogicalIdx} == ifIndex ${xfifIndex}">
-     <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+   <resourceType name="ericsson_ifIndex" label="RSL, TX PWR &amp; Frequencies" resourceLabel="${er_ifName} (Index: ${index})">
+     <persistenceSelectorStrategy class="org.opennms.netmgt.collectd.PersistRegexSelectorStrategy">
+        <parameter key="match-expression" value="(#xfRFTxOperStatus == '3' and #xfRFTxAdminStatus == '3')"/>
+     </persistenceSelectorStrategy>
      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
    </resourceType>
-   <resourceType name="ericsson_ifIndex" label="Ericsson Interfaces" resourceLabel="${er_ifName} (Index: ${index})">
-     <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
-     <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
-   </resourceType>
-
-   <!--
--->
 
    <group name="ericsson_6352" ifType="all">
       <mibObj oid=".1.3.6.1.4.1.193.223.2.7.1.1.1" instance="ifIndex"  alias="actualInptPwr" type="string"/>
@@ -153,20 +148,13 @@
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.2.1.12" instance="ericsson_ifIndex" alias="xfRFStepSizeRx" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.2.1.6" instance="ericsson_ifIndex" alias="xfRFCurStepNumTx" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.2.1.15" instance="ericsson_ifIndex" alias="xfRFCurStepNumRx" type="gauge"/>
-   </group>
-   <group name="ericsson_6693_radio_pwr" ifType="all">
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.3" instance="ericsson_ifIndex" alias="xfCurOutptPwr" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.4" instance="ericsson_ifIndex" alias="xfMinOutptPwr" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.5" instance="ericsson_ifIndex" alias="xfMaxOutptPwr" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.7" instance="ericsson_ifIndex" alias="xfCurInptPwr" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.8.1.6" instance="ericsson_ifIndex" alias="xfAtpcTgtInptPwrFE" type="gauge"/>
-   </group>
-   <group name="ericsson_6693_maptable" ifType="all">
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.2.1.1" instance="xfLIMappingTable" alias="xfLogicalIdx" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.2.1.2" instance="xfLIMappingTable" alias="xfifIndex" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.2.1.3" instance="xfLIMappingTable" alias="xfifName" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.2.1.4" instance="xfLIMappingTable" alias="xfifDescr" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.2.1.1" instance="xfLIMappingTable" alias="xflinum" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.2.1.7" instance="ericsson_ifIndex" alias="xfRFTxOperStatus" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.3.1.2.1.8" instance="ericsson_ifIndex" alias="xfRFTxAdminStatus" type="string"/>
    </group>
    <group name="ericsson_6693_rlt_mib" ifType="all">
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.6.1.1" instance="xfRLTLogicalIndex" alias="xfLogicalIdx" type="string"/>
@@ -178,6 +166,7 @@
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.6.1.8" instance="xfRLTLogicalIndex" alias="RLTFarEndid" type="string"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.6.1.10" instance="xfRLTLogicalIndex" alias="RLTStatus" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.6.1.12" instance="xfRLTLogicalIndex" alias="RLTTXTotCpcty" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.3.4.5.1.6.1.12" instance="xfRLTLogicalIndex" alias="RLTTXTotCapacity" type="gauge"/>
       <property instance="xfLogicalIndex" alias="RLTStatusTXT" class-name="org.opennms.netmgt.collectd.EnumLookupPropertyExtender">
          <parameter key="enum-attribute" value="RLTStatus"/>
          <parameter key="1" value="other(1)"/>
@@ -188,7 +177,6 @@
       </property>	 
    </group>
 
-   <!--- Why do you make me do these things? -->
    <group name="er-X-interfaces" ifType="all">
       <mibObj oid=".1.3.6.1.2.1.31.1.1.1.1" instance="ericsson_ifIndex" alias="er_ifName" type="string"/>
       <mibObj oid=".1.3.6.1.2.1.31.1.1.1.15" instance="ericsson_ifIndex" alias="er_ifHighSpeed" type="string"/>
@@ -208,7 +196,6 @@
          <includeGroup>ericsson_6693_carrierterm</includeGroup>
          <includeGroup>ericsson_6693_rlt_mib</includeGroup>
          <includeGroup>ericsson_6693_ptp_radio</includeGroup>
-         <includeGroup>ericsson_6693_radio_pwr</includeGroup>
          <includeGroup>er-X-interfaces</includeGroup>
       </collect>
    </systemDef>
