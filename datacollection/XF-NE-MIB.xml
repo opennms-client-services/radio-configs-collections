@@ -1,0 +1,464 @@
+<datacollection-group xmlns="http://xmlns.opennms.org/xsd/config/datacollection" name="XF-NE-MIB">
+   <resourceType name="xfTimeContinentEntry" label="xfTimeContinentEntry" resourceLabel="${xfTimeContinentCurrent} (${index})">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfTimeCityEntry" label="xfTimeCityEntry" resourceLabel="${xfTimeCityCurrent} (${index})">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfSnmpErrConfigStatusEntry" label="xfSnmpErrConfigStatusEntry" resourceLabel="${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfConfigValidationEntry" label="xfConfigValidationEntry" resourceLabel="${xfConfigValidationDcnIP} (${index})">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfConfigValidationBoardEntry" label="xfConfigValidationBoardEntry" resourceLabel="${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfNePM15mPeriodsEntry" label="xfNePM15mPeriodsEntry" resourceLabel="${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfNePM24hPeriodsEntry" label="xfNePM24hPeriodsEntry" resourceLabel="${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfRemoteSysLogEntry" label="xfRemoteSysLogEntry" resourceLabel="${xfRemoteSysLogIpAddress} (${index})">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfConfigReportContentEntry" label="xfConfigReportContentEntry" resourceLabel="${xfConfigReportContentSetting} (${index})">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfSecurityUserRoleEntry" label="xfSecurityUserRoleEntry" resourceLabel="${xfSecurityUserRole} (${index})">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfTacacsSrvConfigEntry" label="xfTacacsSrvConfigEntry" resourceLabel="${xfTacacsSrvConfigRowStatus} (${index})">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfTacacsSrvCounterEntry" label="xfTacacsSrvCounterEntry" resourceLabel="${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfRadiusSrvConfigEntry" label="xfRadiusSrvConfigEntry" resourceLabel="${xfRadiusSrvConfigRowStatus} (${index})">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfRadiusSrvCounterEntry" label="xfRadiusSrvCounterEntry" resourceLabel="${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfUsrSessionTimerEntry" label="xfUsrSessionTimerEntry" resourceLabel="${xfEnableSessionTimer} (${index})">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfUsrLastLoginEntry" label="xfUsrLastLoginEntry" resourceLabel="${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfIPv6RemoteSysLogEntry" label="xfIPv6RemoteSysLogEntry" resourceLabel="${xfIPv6RemoteSysLogRowStatus} (${index})">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfCapabilityEntry" label="xfCapabilityEntry" resourceLabel="${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfRemoteSysLogSecurityEntry" label="xfRemoteSysLogSecurityEntry" resourceLabel="${xfRemoteSysLogSecurityIpAddress} (${index})">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfIPv6RemoteSysLogSecurityEntry" label="xfIPv6RemoteSysLogSecurityEntry" resourceLabel="${xfIPv6RemoteSysLogSecurityRowStatus} (${index})">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfHwMonitoredObjectEntry" label="xfHwMonitoredObjectEntry" resourceLabel="${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="xfHwSystemInformationEntry" label="xfHwSystemInformationEntry" resourceLabel="${xfHwGaugeType} ${xfHwGaugeUnit}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <group name="xfConfigSaveObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.1.1" instance="0" alias="xfConfigSaveCommand" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.1.3" instance="0" alias="xfConfigSavedFlag" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.1.4" instance="0" alias="xfConfigSaveTimeOut" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.1.5" instance="0" alias="xfConfiSaveTimeLeft" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.1.6" instance="0" alias="xfConfiConfirComman" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.1.7" instance="0" alias="xfConfigConfirmFlag" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.1.8" instance="0" alias="xfConfConfiTimeLeft" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.1.9" instance="0" alias="xfConfConfiPingAddr" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.1.10" instance="0" alias="xfConfiConfiTimeOut" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.1.11" instance="0" alias="xfConfigRestore" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.1.12" instance="0" alias="xfConfigAlignment" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.1.13" instance="0" alias="xfConConPinAddrIPv6" type="octetstring"/>
+   </group>
+   <group name="xfNEAlarmObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.2.1" instance="0" alias="xfNEAlarmSeverity" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.2.2" instance="0" alias="xfNETrapEnable" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.2.3" instance="0" alias="xfNEAlarmFilterTime" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.2.5" instance="0" alias="xfNEAlarmListStatus" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.2.6" instance="0" alias="xfNELastAlarmId" type="integer32"/>
+   </group>
+   <group name="xfNERestartObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.3.1" instance="0" alias="xfNERestartCommands" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.3.2" instance="0" alias="xfNERestartReason" type="string"/>
+   </group>
+   <group name="xfNEMisc" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.1" instance="0" alias="xfCLIEnable" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.3" instance="0" alias="xfClock" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.4" instance="0" alias="xfNEActivTelecStand" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.6" instance="0" alias="xfNESecurityVariant" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.7" instance="0" alias="xfPingTargetHost" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.8" instance="0" alias="xfPingTest" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.9" instance="0" alias="xfPingResult" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.10" instance="0" alias="xfSecuriAlarmEnable" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.11" instance="0" alias="xfSecuriAlarmStatus" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.12" instance="0" alias="xfSecuriEventEnable" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.14" instance="0" alias="xfSnmpErrConfiVaria" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.15" instance="0" alias="xfNESwitcModeEnable" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.16" instance="0" alias="xfHDMENumPTs" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.17" instance="0" alias="xfPingIPv6TargeHost" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.18" instance="0" alias="xfSysNotes" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.19" instance="0" alias="xfLegalNoticeBanner" type="octetstring"/>
+   </group>
+   <group name="xfTime" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.5.2" instance="0" alias="xfTimeContinent" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.5.3" instance="0" alias="xfTimeCity" type="octetstring"/>
+   </group>
+   <group name="xfTimeContinentTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.5.4.1.1" instance="xfTimeContinentEntry" alias="xfTimeContinentName" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.5.4.1.2" instance="xfTimeContinentEntry" alias="xfTimeContinCurrent" type="string"/>
+   </group>
+   <group name="xfTimeCityTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.5.5.1.1" instance="xfTimeCityEntry" alias="xfTimeCityName" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.5.5.1.2" instance="xfTimeCityEntry" alias="xfTimeCityCurrent" type="string"/>
+   </group>
+   <group name="xfSnmpErrConfigStatusTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.13.1.1" instance="xfSnmpErrConfigStatusEntry" alias="xfSnmErrConStaReqId" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.13.1.2" instance="xfSnmpErrConfigStatusEntry" alias="xfSnmErrConStaErrId" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.13.1.3" instance="xfSnmpErrConfigStatusEntry" alias="xfSnErrConStaTimSta" type="timeticks"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.4.13.1.4" instance="xfSnmpErrConfigStatusEntry" alias="xfSnmpErrConfiStatu" type="octetstring"/>
+   </group>
+   <group name="xfNEErrorLogObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.5.2" instance="0" alias="xfErrorLogCommand" type="string"/>
+   </group>
+   <group name="xfConfigLoadObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.1" instance="0" alias="xfConfigLoadCommand" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.2" instance="0" alias="xfConfigStatus" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.3" instance="0" alias="xfConfigFileName" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.4" instance="0" alias="xfConSaveBackUpEnab" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.5" instance="0" alias="xfConfigPresent" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.6" instance="0" alias="xfConfigAccept" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.7" instance="0" alias="xfConfigFtpUrl" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.8" instance="0" alias="xfConfigFlashUrl" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.9" instance="0" alias="xfConfigRmmUrl" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.10" instance="0" alias="xfConfigProgress" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.11" instance="0" alias="xfConfigCapabilitie" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.14" instance="0" alias="xfConfigChanged" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.15" instance="0" alias="xfConfigChecksum" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.16" instance="0" alias="xfConfigChangeTimer" type="integer32"/>
+   </group>
+   <group name="xfConfigValidationTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.12.1.1" instance="xfConfigValidationEntry" alias="xfConfigValidaIndex" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.12.1.2" instance="xfConfigValidationEntry" alias="xfConfValidFileTime" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.12.1.3" instance="xfConfigValidationEntry" alias="xfConfigValidaDcnIP" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.12.1.4" instance="xfConfigValidationEntry" alias="xfConfValiDcnSubNet" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.12.1.5" instance="xfConfigValidationEntry" alias="xfConValBacProdNumb" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.12.1.6" instance="xfConfigValidationEntry" alias="xfConfValiBackRevis" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.12.1.7" instance="xfConfigValidationEntry" alias="xfConfiValidSysName" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.12.1.8" instance="xfConfigValidationEntry" alias="xfCoVaDcnIPv6HosAdd" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.12.1.9" instance="xfConfigValidationEntry" alias="xfCoVaDcIPv6HoPrLen" type="integer"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.12.1.10" instance="xfConfigValidationEntry" alias="xfConValDcnEthePort" type="string"/>
+   </group>
+   <group name="xfConfigValidationBoardTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.13.1.1" instance="xfConfigValidationBoardEntry" alias="xfConfValiBoarIndex" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.13.1.2" instance="xfConfigValidationBoardEntry" alias="xfConfValiBoarPosit" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.13.1.3" instance="xfConfigValidationBoardEntry" alias="xfConValBoarProdNum" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.7.13.1.4" instance="xfConfigValidationBoardEntry" alias="xfConfValiBoarRevis" type="octetstring"/>
+   </group>
+   <group name="xfNEPm" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.8.1" instance="0" alias="xfPM24HrsStart" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.8.2" instance="0" alias="xfPMResetCounters" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.8.3" instance="0" alias="xfPMFileCommand" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.8.4" instance="0" alias="xfPMFileStatus" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.8.5" instance="0" alias="xfPMFileName" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.8.6" instance="0" alias="xfPMFileIfIndexes" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.8.7" instance="0" alias="xfPMFileCategories" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.8.8" instance="0" alias="xfPMFileGranuPeriod" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.8.9" instance="0" alias="xfPMFileStartInterv" type="integer"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.8.10" instance="0" alias="xfPMFileEndInterval" type="integer"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.8.11" instance="0" alias="xfPMFileVersion" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.8.12" instance="0" alias="xfNePM15mPerIntCoun" type="integer"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.8.15" instance="0" alias="xfNePMCu15mPeElaTim" type="integer"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.8.16" instance="0" alias="xfNePMCu24hPeElaTim" type="integer"/>
+   </group>
+   <group name="xfNePM15mPeriodsTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.8.13.1.1" instance="xfNePM15mPeriodsEntry" alias="xfNePM15mPerIntNumb" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.8.13.1.2" instance="xfNePM15mPeriodsEntry" alias="xfNePM15mPerStaTime" type="octetstring"/>
+   </group>
+   <group name="xfNePM24hPeriodsTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.8.14.1.1" instance="xfNePM24hPeriodsEntry" alias="xfNePM24hPerIntNumb" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.8.14.1.2" instance="xfNePM24hPeriodsEntry" alias="xfNePM24hPerStaTime" type="octetstring"/>
+   </group>
+   <group name="xfNESysLogObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.9.1" instance="0" alias="xfSysLogCommand" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.9.2" instance="0" alias="xfRemotSysLogComman" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.9.3" instance="0" alias="xfRemSysLogTrapSeve" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.9.4" instance="0" alias="xfRemotSysLogVarian" type="integer32"/>
+   </group>
+   <group name="xfRemoteSysLogTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.9.5.1.1" instance="xfRemoteSysLogEntry" alias="xfRemoteSysLogIndex" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.9.5.1.2" instance="xfRemoteSysLogEntry" alias="xfRemoSysLogIpAddre" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.9.5.1.3" instance="xfRemoteSysLogEntry" alias="xfRemSysLogPortAddr" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.9.5.1.4" instance="xfRemoteSysLogEntry" alias="xfRemoSysLogRowStat" type="string"/>
+   </group>
+   <group name="xfNEStatusObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.10.1" instance="0" alias="xfNEOperStatus" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.10.2" instance="0" alias="xfNEEquipmentStatus" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.10.4" instance="0" alias="xfNEExitInstallMode" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.10.5" instance="0" alias="xfNEBIDStatus" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.10.6" instance="0" alias="xfNEBIDNStatus" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.10.7" instance="0" alias="xfNEBIDRStatus" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.10.8" instance="0" alias="xfNENPUInstallCause" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.10.9" instance="0" alias="xfNESPIMasterSlot" type="integer"/>
+   </group>
+   <group name="xfNEPowerObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.12.1" instance="0" alias="xfNEPowerMode" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.12.2" instance="0" alias="xfNEPowReduAdmiStat" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.12.3" instance="0" alias="xfNEPowReduOperStat" type="string"/>
+   </group>
+   <group name="xfNEDiagLogObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.13.1" instance="0" alias="xfDiagLogVariant" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.13.2" instance="0" alias="xfDiagLogCommand" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.13.3" instance="0" alias="xfDiagLogStatus" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.13.4" instance="0" alias="xfDiagLogFileName" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.13.5" instance="0" alias="xfDiagLogshelfCount" type="integer32"/>
+   </group>
+   <group name="xfNEAuditLogScalarObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.14.1.1" instance="0" alias="xfAuditLogVariant" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.14.1.2" instance="0" alias="xfAuditLogCommand" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.14.1.3" instance="0" alias="xfAuditLogFileName" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.14.1.4" instance="0" alias="xfAuditLogPresent" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.14.1.5" instance="0" alias="xfAuditLogStatus" type="string"/>
+   </group>
+   <group name="xfPasswordObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.15.1" instance="0" alias="xfPasswoResetComman" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.15.2" instance="0" alias="xfStronPasswoEnforc" type="string"/>
+   </group>
+   <group name="xfConfigReportObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.16.1" instance="0" alias="xfConfiReportCapabi" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.16.2" instance="0" alias="xfConfiReportComman" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.16.3" instance="0" alias="xfConfiReportStatus" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.16.4" instance="0" alias="xfConfiReportProgre" type="integer32"/>
+   </group>
+   <group name="xfConfigReportContentTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.16.5.1.1" instance="xfConfigReportContentEntry" alias="xfConfRepoContIndex" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.16.5.1.2" instance="xfConfigReportContentEntry" alias="xfConfRepoConteType" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.16.5.1.3" instance="xfConfigReportContentEntry" alias="xfConfRepoContSetti" type="string"/>
+   </group>
+   <group name="xfSecurityScalarObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.1.1" instance="0" alias="xfSecuAAAPolicCapab" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.1.2" instance="0" alias="xfSeAAAPolConAutLog" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.1.3" instance="0" alias="xfSecuritCLIProtoco" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.1.4" instance="0" alias="xfSecuDefauFTPProto" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.1.5" instance="0" alias="xfSecurSNMPv3Protoc" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.1.6" instance="0" alias="xfSecurSecureProtoc" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.1.7" instance="0" alias="xfSecuBrutForcThres" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.1.8" instance="0" alias="xfUsrLocalIdleTimer" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.1.9" instance="0" alias="xfEnableLocalUsers" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.1.10" instance="0" alias="xfSecuAAAPolicStatu" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.1.11" instance="0" alias="xfSecSNMPv3AuthProt" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.1.12" instance="0" alias="xfSecSNMPv3PrivProt" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.1.13" instance="0" alias="xfSecuritWebProtoco" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.1.14" instance="0" alias="xfSecAAASesAccoStar" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.1.15" instance="0" alias="xfSecAAASesAccoStop" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.1.16" instance="0" alias="xfSecAAASesAccoInte" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.1.17" instance="0" alias="xfSeAAASesAccIntPer" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.1.18" instance="0" alias="xfSecuAAACommaAccou" type="string"/>
+   </group>
+   <group name="xfSecurityUserRoleTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.1.1.1" instance="xfSecurityUserRoleEntry" alias="xfSecurityUserRole" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.1.1.2" instance="xfSecurityUserRoleEntry" alias="xfSeUseRolReaOnlFea" type="octetstring"/>
+   </group>
+   <group name="xfTacacsSrvConfigTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.2.1.1" instance="xfTacacsSrvConfigEntry" alias="xfTacaSrvConfiIndex" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.2.1.2" instance="xfTacacsSrvConfigEntry" alias="xfTacSrvConfRowStat" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.2.1.3" instance="xfTacacsSrvConfigEntry" alias="xfTacaSrvConfiAddre" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.2.1.4" instance="xfTacacsSrvConfigEntry" alias="xfTacacSrvConfiPort" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.2.1.5" instance="xfTacacsSrvConfigEntry" alias="xfTacacSrvConfigKey" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.2.1.6" instance="xfTacacsSrvConfigEntry" alias="xfTacaSrvConfiEnabl" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.2.1.7" instance="xfTacacsSrvConfigEntry" alias="xfTacaSrvConfiPrior" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.2.1.8" instance="xfTacacsSrvConfigEntry" alias="xfTacSrvConDeadTime" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.2.1.9" instance="xfTacacsSrvConfigEntry" alias="xfTacSrvConfMaxRetr" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.2.1.10" instance="xfTacacsSrvConfigEntry" alias="xfTacaSrvConfiTimeo" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.2.1.11" instance="xfTacacsSrvConfigEntry" alias="xfTacSrvConIpSouAdd" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.2.1.12" instance="xfTacacsSrvConfigEntry" alias="xfTaSrvConCheConCom" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.2.1.13" instance="xfTacacsSrvConfigEntry" alias="xfTaSrvConCheConSta" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.2.1.14" instance="xfTacacsSrvConfigEntry" alias="xfTacSrvConAddrGene" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.2.1.15" instance="xfTacacsSrvConfigEntry" alias="xfTaSrCoIpSouAddGen" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.2.1.16" instance="xfTacacsSrvConfigEntry" alias="xfTacSrvConAcctPort" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.2.1.17" instance="xfTacacsSrvConfigEntry" alias="xfTacSrvConGrouName" type="octetstring"/>
+   </group>
+   <group name="xfTacacsSrvCounterTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.3.1.1" instance="xfTacacsSrvCounterEntry" alias="xfTacaSrvCountIndex" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.3.1.2" instance="xfTacacsSrvCounterEntry" alias="xfTacSrvCouActiSess" type="gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.3.1.3" instance="xfTacacsSrvCounterEntry" alias="xfTacSrvCouPackTran" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.3.1.4" instance="xfTacacsSrvCounterEntry" alias="xfTacSrvCouPackRece" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.3.1.5" instance="xfTacacsSrvCounterEntry" alias="xfTacSrvCouConnErro" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.3.1.6" instance="xfTacacsSrvCounterEntry" alias="xfTacSrvCouTranErro" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.3.1.7" instance="xfTacacsSrvCounterEntry" alias="xfTacSrvCouReceErro" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.3.1.8" instance="xfTacacsSrvCounterEntry" alias="xfTacSrvCouAuthTime" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.3.1.9" instance="xfTacacsSrvCounterEntry" alias="xfTacSrvCouAuthTime" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.3.1.10" instance="xfTacacsSrvCounterEntry" alias="xfTaSrvCouAccPacTra" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.3.1.11" instance="xfTacacsSrvCounterEntry" alias="xfTaSrvCouAccPacRec" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.3.1.12" instance="xfTacacsSrvCounterEntry" alias="xfTaSrvCouAccConErr" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.3.1.13" instance="xfTacacsSrvCounterEntry" alias="xfTaSrvCouAccTraErr" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.3.1.14" instance="xfTacacsSrvCounterEntry" alias="xfTaSrvCouAccRecErr" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.3.1.15" instance="xfTacacsSrvCounterEntry" alias="xfTacSrvCouAcctTime" type="counter32"/>
+   </group>
+   <group name="xfRadiusSrvConfigTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.4.1.1" instance="xfRadiusSrvConfigEntry" alias="xfRadiSrvConfiIndex" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.4.1.2" instance="xfRadiusSrvConfigEntry" alias="xfRadSrvConfRowStat" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.4.1.3" instance="xfRadiusSrvConfigEntry" alias="xfRadiSrvConfiAddre" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.4.1.4" instance="xfRadiusSrvConfigEntry" alias="xfRadiuSrvConfiPort" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.4.1.5" instance="xfRadiusSrvConfigEntry" alias="xfRadiuSrvConfigKey" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.4.1.6" instance="xfRadiusSrvConfigEntry" alias="xfRadiSrvConfiEnabl" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.4.1.7" instance="xfRadiusSrvConfigEntry" alias="xfRadiSrvConfiPrior" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.4.1.8" instance="xfRadiusSrvConfigEntry" alias="xfRadSrvConDeadTime" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.4.1.9" instance="xfRadiusSrvConfigEntry" alias="xfRadSrvConfMaxRetr" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.4.1.10" instance="xfRadiusSrvConfigEntry" alias="xfRadiSrvConfiTimeo" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.4.1.11" instance="xfRadiusSrvConfigEntry" alias="xfRaSrvConCheConCom" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.4.1.12" instance="xfRadiusSrvConfigEntry" alias="xfRaSrvConCheConSta" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.4.1.13" instance="xfRadiusSrvConfigEntry" alias="xfRadSrvConAddrGene" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.4.1.14" instance="xfRadiusSrvConfigEntry" alias="xfRadSrvConAcctPort" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.4.1.15" instance="xfRadiusSrvConfigEntry" alias="xfRadSrvConGrouName" type="octetstring"/>
+   </group>
+   <group name="xfRadiusSrvCounterTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.5.1.1" instance="xfRadiusSrvCounterEntry" alias="xfRadiSrvCountIndex" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.5.1.2" instance="xfRadiusSrvCounterEntry" alias="xfRadSrvCouRequSend" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.5.1.3" instance="xfRadiusSrvCounterEntry" alias="xfRadSrvCouRequRese" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.5.1.4" instance="xfRadiusSrvCounterEntry" alias="xfRadSrvCouRequAcce" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.5.1.5" instance="xfRadiusSrvCounterEntry" alias="xfRadSrvCouRequReje" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.5.1.6" instance="xfRadiusSrvCounterEntry" alias="xfRadSrvCouRequTime" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.5.1.7" instance="xfRadiusSrvCounterEntry" alias="xfRaSrvCouAccReqSen" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.5.1.8" instance="xfRadiusSrvCounterEntry" alias="xfRaSrvCouAccReqRes" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.5.1.9" instance="xfRadiusSrvCounterEntry" alias="xfRaSrvCouAccReqAcc" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.5.1.10" instance="xfRadiusSrvCounterEntry" alias="xfRaSrvCouAccReqRej" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.5.1.11" instance="xfRadiusSrvCounterEntry" alias="xfRaSrvCouAccReqTim" type="counter32"/>
+   </group>
+   <group name="xfUsrSessionTimerTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.6.1.1" instance="xfUsrSessionTimerEntry" alias="xfUsmUserName" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.6.1.2" instance="xfUsrSessionTimerEntry" alias="xfPeerIp" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.6.1.3" instance="xfUsrSessionTimerEntry" alias="xfUsrSessiTimerLeft" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.6.1.4" instance="xfUsrSessionTimerEntry" alias="xfEnableSessioTimer" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.6.1.5" instance="xfUsrSessionTimerEntry" alias="xfUsrIdleTimer" type="integer32"/>
+   </group>
+   <group name="xfUsrLastLoginTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.7.1.1" instance="xfUsrLastLoginEntry" alias="xfUserName" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.7.1.2" instance="xfUsrLastLoginEntry" alias="xfLastLogin" type="octetstring"/>
+   </group>
+   <group name="xfSecurityTableObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.8" instance="0" alias="xfTacacSrvAddreType" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.2.9" instance="0" alias="xfRadiuSrvAddreType" type="string"/>
+   </group>
+   <group name="xfFileIntegrityReport" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.3.1" instance="0" alias="xfFileInteRepoCapab" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.3.2" instance="0" alias="xfFilIntRepFileName" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.3.3" instance="0" alias="xfFileInteRepoComma" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.3.4" instance="0" alias="xfFileInteRepoStatu" type="string"/>
+   </group>
+   <group name="xfNTPObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.4.1" instance="0" alias="xfNTPProtocol" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.4.2" instance="0" alias="xfNTPKeyDownlComman" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.4.3" instance="0" alias="xfNTPKeyDownlStatus" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.17.4.4" instance="0" alias="xfNTPStatus" type="octetstring"/>
+   </group>
+   <group name="xfIPv6NESysLogObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.18.1" instance="0" alias="xfIPv6RemSysLogVari" type="integer32"/>
+   </group>
+   <group name="xfIPv6RemoteSysLogTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.18.2.1.1" instance="xfIPv6RemoteSysLogEntry" alias="xfIPv6RemSysLogInde" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.18.2.1.2" instance="xfIPv6RemoteSysLogEntry" alias="xfIPv6ReSysLogIpAdd" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.18.2.1.3" instance="xfIPv6RemoteSysLogEntry" alias="xfIPv6ReSyLogPorAdd" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.18.2.1.4" instance="xfIPv6RemoteSysLogEntry" alias="xfIPv6ReSyLogRowSta" type="string"/>
+   </group>
+   <group name="xfCapabilityTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.19.1.1.1" instance="xfCapabilityEntry" alias="xfCapabilityName" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.19.1.1.2" instance="xfCapabilityEntry" alias="xfCapabilityValue" type="octetstring"/>
+   </group>
+   <group name="xfNESysLogSecurityObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.20.2" instance="0" alias="xfRemSysLogSecuComm" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.20.4" instance="0" alias="xfRemSysLogSecuVari" type="integer32"/>
+   </group>
+   <group name="xfNESysLogSecurityEvents" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.20.3.1" instance="0" alias="xfReSysLogSecTacEve" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.20.3.2" instance="0" alias="xfReSysLogSecRadEve" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.20.3.3" instance="0" alias="xfReSyLoSeLocAutEve" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.20.3.4" instance="0" alias="xfReSysLogSecLogEve" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.20.3.5" instance="0" alias="xfReSyLoSeProRelEve" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.20.3.6" instance="0" alias="xfReSyLoSeAudLogEve" type="octetstring"/>
+   </group>
+   <group name="xfRemoteSysLogSecurityTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.20.5.1.1" instance="xfRemoteSysLogSecurityEntry" alias="xfRemSysLogSecuInde" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.20.5.1.2" instance="xfRemoteSysLogSecurityEntry" alias="xfRemSysLogSecIpAdd" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.20.5.1.3" instance="xfRemoteSysLogSecurityEntry" alias="xfReSysLogSecPorAdd" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.20.5.1.4" instance="xfRemoteSysLogSecurityEntry" alias="xfReSysLogSecRowSta" type="string"/>
+   </group>
+   <group name="xfIPv6NESysLogSecurityObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.21.1" instance="0" alias="xfIPv6ReSyLogSecVar" type="integer32"/>
+   </group>
+   <group name="xfIPv6RemoteSysLogSecurityTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.21.2.1.1" instance="xfIPv6RemoteSysLogSecurityEntry" alias="xfIPv6ReSyLogSecInd" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.21.2.1.2" instance="xfIPv6RemoteSysLogSecurityEntry" alias="xfIPv6ReSyLoSeIpAdd" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.21.2.1.3" instance="xfIPv6RemoteSysLogSecurityEntry" alias="xfIPv6ReSyLoSePoAdd" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.21.2.1.4" instance="xfIPv6RemoteSysLogSecurityEntry" alias="xfIPv6ReSyLoSeRoSta" type="string"/>
+   </group>
+   <group name="xfHwMonitoredObjectTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.22.1.1.1" instance="xfHwMonitoredObjectEntry" alias="xfHwMonitObjecIndex" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.22.1.1.2" instance="xfHwMonitoredObjectEntry" alias="xfHwEntPhysicaIndex" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.22.1.1.3" instance="xfHwMonitoredObjectEntry" alias="xfHwGaugeObject" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.22.1.1.4" instance="xfHwMonitoredObjectEntry" alias="xfHwGaugeUnit" type="string"/>
+   </group>
+   <group name="xfHwSystemInformationTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.22.2.1.1" instance="xfHwSystemInformationEntry" alias="xfHwSysteInforIndex" type="gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.22.2.1.2" instance="xfHwSystemInformationEntry" alias="xfHwMonitorObjectId" type="gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.22.2.1.3" instance="xfHwSystemInformationEntry" alias="xfHwGaugeType" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.22.2.1.4" instance="xfHwSystemInformationEntry" alias="xfHwGaugeValue" type="gauge32"/>
+      <property instance="xfHwSystemInformationEntry" alias="xfHwGaugeUnit" class-name="org.opennms.netmgt.collectd.PointerLikeIndexPropertyExtender">
+         <parameter key="source-type" value="xfHwMonitoredObjectEntry"/>
+         <parameter key="source-attribute" value="xfHwGaugeUnit"/>
+         <parameter key="target-index-pointer-column" value="xfHwMonitorObjectId"/>
+      </property>
+      <property instance="xfHwSystemInformationEntry" alias="xfHwGaugeObject" class-name="org.opennms.netmgt.collectd.PointerLikeIndexPropertyExtender">
+         <parameter key="source-type" value="xfHwMonitoredObjectEntry"/>
+         <parameter key="source-attribute" value="xfHwGaugeObject"/>
+         <parameter key="target-index-pointer-column" value="xfHwMonitorObjectId"/>
+      </property>
+   </group>
+   <group name="xfNELocalLogUploadObjects" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.23.1" instance="0" alias="xfNELocaLogUploEnab" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.23.2" instance="0" alias="xfNELocaLogPendUplo" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.23.3" instance="0" alias="xfNELocaLogLastUplo" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.23.4" instance="0" alias="xfNELocaLogForcUplo" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.193.81.2.4.23.5" instance="0" alias="xfNELocaLogUploInte" type="integer32"/>
+   </group>
+27307 11.148.102.59
+
+
+   <systemDef name="ericsson_6693_gauges">
+      <sysoid>.1.3.6.1.4.1.193.81.1.1.3</sysoid>
+      <collect>
+         <includeGroup>xfHwMonitoredObjectTable</includeGroup>
+         <includeGroup>xfHwSystemInformationTable</includeGroup>
+      </collect>
+   </systemDef>
+</datacollection-group>
